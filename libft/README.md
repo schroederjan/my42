@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my first project.
+A short description of your project goes here.
 
 ## Prerequisites
 
@@ -20,15 +20,15 @@ Provide clear examples and instructions on how to use your project.
 
 | Index | File Name | Description |
 | --- | --- | --- |
-| 1 | word_cound.c | Description here |
-
-Explain how other developers can contribute to your project.
+| 1 | word_count.c | Description here |
 
 ## Contributing
 
 Explain how other developers can contribute to your project.
 
 ## License
+
+Specify your project's license and provide a link to the full license text.
 
 ## Contact
 
