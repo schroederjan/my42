@@ -3,7 +3,7 @@ UTILS			= $(addprefix utils/, sigsegv.cpp color.cpp check.cpp leaks.cpp)
 PARENT_DIR		= $(shell dirname $(shell pwd))
 LIBFT_PATH		= ../libft
 TESTS_PATH		= tests/
-MANDATORY		= atoi
+MANDATORY		= atoi strlen
 BONUS			= 
 # MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
 #                 isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \
