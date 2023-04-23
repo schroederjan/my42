@@ -20,7 +20,11 @@ Provide clear examples and instructions on how to use your project.
 
 | Index | File Name | Description |
 | --- | --- | --- |
-| 1 | word_count.c | Description here |
+| 1 | ft_atoi.c | Description here |
+| 2 | ft_isdigit.c | Description here |
+| 3 | ft_isspace_bonus.c | Description here |
+| 4 | libft.h | Description here |
+| 5 | Makefile | Description here |
 
 ## Contributing
 
