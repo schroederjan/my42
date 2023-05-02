@@ -1,16 +1,28 @@
+/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 07:59:20 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/02 07:59:38 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/02 08:00:52 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/02 08:00:52 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+int	ft_toupper(int c)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	if (c >= 'a' && c <= 'z')
+		return (c -= 32);
+	else
+		return (c);
 }
+
+/*
+#include <stdio.h>
+int main(void)
+{
+    printf("%c\n", ft_toupper('a'));
+}
+*/

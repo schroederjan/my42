@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jschroed <jschroed@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/02 07:58:54 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/02 07:58:57 by jschroed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <limits.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
 {
 	int		sign;
-	long	ret;
+	long	number;
 
-	ret = 0;
+	number = 0;
 	sign = 1;
 	while (ft_isspace(*str))
 		++str;
@@ -15,11 +27,11 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 	while (ft_isdigit(*str))
 	{
-		ret = ret * 10 + sign * (*str++ - '0');
-		if (ret > INT_MAX)
+		number = number * 10 + sign * (*str++ - '0');
+		if (number > INT_MAX)
 			return (-1);
-		else if (ret < INT_MIN)
+		else if (number < INT_MIN)
 			return (0);
 	}
-	return ((int)ret);
+	return ((int)number);
 }

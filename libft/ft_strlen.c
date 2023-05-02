@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jschroed <jschroed@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/02 07:59:44 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/02 08:00:33 by jschroed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
-size_t  ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    size_t n;
+	size_t	n;
 
-    n = 0;
-    while (*str++)
-        ++n;
-    return (n);
+	n = 0;
+	while (*str++)
+		++n;
+	return (n);
 }
