@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschroed <jschroed@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 07:59:20 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/02 07:59:38 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/02 18:37:56 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/02 18:37:58 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
