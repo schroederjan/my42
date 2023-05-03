@@ -1,6 +1,6 @@
 extern "C"
 {
-#define new tripouille
+#define new SURPRISING_NEW_OVERLOAD
 #include "libft.h"
 #undef new
 }

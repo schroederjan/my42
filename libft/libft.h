@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:38:27 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/02 18:38:28 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/05/03 21:01:41 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 int		ft_toupper(int c);
+int		ft_isalpha(int c);
 
-// int		ft_isalpha(int c);
 // int		ft_isalnum(int c);
 // int		ft_isascii(int c);
 // int		ft_isprint(int c);

@@ -1,20 +1,21 @@
 NAME = libft.a
 
 SRC_DIR = ./
-SRCS = $(notdir $(wildcard $(SRC_DIR)/*.c))
+SRCS = $(wildcard $(SRC_DIR)/*.c)
 
-OBJECTS = $(SRCS:%.c=%.o)
+OBJECTS = $(SRCS:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(AR) -r $@ $?
+	$(AR) rcs $@ $^
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)
@@ -25,3 +26,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
