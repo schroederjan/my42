@@ -11,6 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <stddef.h>
 
 void	*ft_memset(void *b, int c, size_t n)
@@ -23,23 +25,21 @@ void	*ft_memset(void *b, int c, size_t n)
 	return (ret);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-// simple main to test
-int	main(void)
-{
-	char	buf[] = "helllllooo"; // allocate enough for the size and the \0
-	int		ic;
-	size_t	stn;
-
-	ic = 'a'; // set a char to for the memory to be flushed with
-	stn = 3; // set the size of the flush
-
-	ft_memset(buf, ic, stn); // flush the memory
-	/* buf[stn] = 0; // need to add \0 at the end because we use %s to print */
-
-	printf("%s\n", buf);
-}
+/* // simple main to test */
+/* int	main(void) */
+/* { */
+/*     char	buf[] = "helllllooo"; */
+/*     int		ic; */
+/*     size_t	stn; */
+/*  */
+/*     ic = 'a'; // set a char to for the memory to be flushed with */
+/*     stn = 3; // set the size of the flush */
+/*  */
+/*     ft_memset(buf, ic, stn); // flush the memory */
+/*     [> buf[stn] = 0; // to add \0 at the end because we use %s to print <] */
+/*  */
+/*     printf("%s\n", buf); */
+/* } */
 
 // more test for using malloc and not needing to add a \0 for printing
 /* int	main(void) */
