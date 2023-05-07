@@ -15,11 +15,16 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
+	unsigned char	*p;
+
+	p = (unsigned char *)s;
 	while (n--)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
-			return ((void *)s);
-		s++;
+		if (*p == (unsigned char)c)
+		{
+			return ((void *)p);
+		}
+		p++;
 	}
 	return (NULL);
 }
@@ -29,13 +34,20 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*  */
 /* int	main(void) */
 /* { */
-/*     const char	*s = "Hello"; */
-/*     int		c = 'T'; */
-/*     size_t	n = 8; */
+/*     const char	*s = "he llo"; */
+/*     int		c = 32; // search for the ' '  */
+/*     size_t	n = strlen(s); */
 /*     char	*result = ft_memchr(s, c, n); */
-/*     [> char	*result_org = memchr(s, c, n); <] */
+/*     char	*result_org = memchr(s, c, n); */
 /*  */
-/*     printf("%s\n", result); */
-/*     [> printf("%s\n", result_org); <] */
-/*  */
+/*     if (result) // if it is found return the pointer at current pos */
+/*     { */
+/*         printf("%s\n", result); */
+/*         printf("%s\n", result_org); */
+/*     } */
+/*     else // if it is not fount return NULL */
+/*     { */
+/*         printf("%p\n", result); */
+/*         printf("%p\n", result_org); */
+/*     } */
 /* } */
