@@ -1,38 +1,41 @@
-/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 11:08:15 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/07 13:49:28 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/07 16:30:13 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/07 16:43:23 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// TODO
+
 #include <stddef.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
+	size_t	ret;
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	while (n--)
+	i = 0;
+	while (*dest && i < size)
 	{
-		*d++ = *s++;
+		dest++;
+		i++;
 	}
-	return (dest);
+	ret = ft_strlcpy(dest, src, size - i);
+	return (ret + i);
 }
 
 /* #include <stdio.h> */
 /* int	main(void) */
 /* { */
-/*     char dest[5] = "12345"; */
-/*     const char *src = "abcde"; */
-/*     size_t	n = 2; */
+/*     char	dest[6] = "abc"; */
+/*     char	*src = "123"; */
+/*     size_t size = 6; */
 /*  */
-/*     printf("%s\n", (unsigned char *)ft_memcpy(dest, src, n)); */
+/*     printf("return: %s, dest: %s\n", ft_strlcat(dest, src, size), dest); */
 /* } */
