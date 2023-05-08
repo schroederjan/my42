@@ -34,7 +34,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 /* int	main(void) */
 /* { */
 /*  */
-/*     char *src = "abcdefghi"; */
+/*     char *src = "0123456789"; */
 /*     char dest[10];  // use a large enough buffer */
 /*     unsigned int size; */
 /*     unsigned int result; */
