@@ -27,12 +27,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	char dest[5] = "12345";
-	const char *src = "abcde";
-	size_t	n = 2;
-
-	printf("%s\n", (unsigned char *)ft_memcpy(dest, src, n));
-}
+/* #include <stdio.h> */
+/* int	main(void) */
+/* { */
+/*     char dest[5] = "12345"; */
+/*     const char *src = "abcde"; */
+/*     size_t	n = 2; */
+/*  */
+/*     printf("%s\n", (unsigned char *)ft_memcpy(dest, src, n)); */
+/* } */

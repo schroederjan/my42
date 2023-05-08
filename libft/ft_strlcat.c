@@ -59,7 +59,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 /*  */
 /*     for (size = 1; size <= 7; size++) */
 /*     { */
-/*         strncpy(dest, original_dest, sizeof(dest)); // to reset dest each loop */
+/*         strncpy(dest, original_dest, sizeof(dest)); */
 /*         result = ft_strlcat(dest, src, size); */
 /*         printf("return: %zu, dest: %s, size: %zu\n", result, dest, size); */
 /*     } */
