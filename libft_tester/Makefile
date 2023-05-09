@@ -5,13 +5,11 @@ LIBFT_PATH		= ../libft
 TESTS_PATH		= tests/
 MANDATORY		= atoi strlen toupper tolower isdigit isalpha isalnum isascii \
 				  isprint strchr strrchr strlcpy strlcat memset memchr memcpy \
-				  memcmp strncmp strnstr strdup
-BONUS			= 
+				  memcmp strncmp strnstr strdup calloc bzero
 # MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
 #                 isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \
 #                 atoi calloc strdup substr strjoin strtrim split itoa strmapi putchar_fd putstr_fd \
 #                 putendl_fd putnbr_fd striteri
-# BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
 
 CC		= clang++
 CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
@@ -21,9 +19,6 @@ ifeq ($(UNAME), Linux)
 endif
 
 $(MANDATORY): %: mandatory_start
-	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L$(LIBFT_PATH) -lft && $(VALGRIND) ./a.out && rm -f a.out
-
-$(BONUS): %: bonus_start
 	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L$(LIBFT_PATH) -lft && $(VALGRIND) ./a.out && rm -f a.out
 
 mandatory_start: message
@@ -43,7 +38,6 @@ checkmakefile:
 	@ls $(LIBFT_PATH) | grep Makefile > /dev/null 2>&1 || (tput setaf 1 && echo Makefile not found. && exit 1)
 
 m: $(MANDATORY)
-b: $(BONUS)
 a: m b 
 
 clean:
