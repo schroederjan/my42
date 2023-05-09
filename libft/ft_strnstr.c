@@ -16,42 +16,35 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*big_temp;
-	char	*little_temp;
 	size_t	i;
+	size_t	little_len;
+	size_t	big_len;
 
-	if (!ft_strlen(little))
+	i = 0;
+	little_len = ft_strlen(little);
+	big_len = ft_strlen(big);
+	if (*little == 0)
 		return ((char *)big);
-	if (!ft_strlen(big) || len < ft_strlen(little))
-		return (0);
-	i = len - ft_strlen(little) + 1;
-	while (i-- && *big)
+	while (i + little_len <= len && i + little_len <= big_len)
 	{
-		big_temp = (char *)big;
-		little_temp = (char *)little;
-		while (*little_temp && *little_temp == *big_temp)
-		{
-			little_temp++;
-			big_temp++;
-		}
-		if (!*little_temp)
-			return ((char *)big);
-		big++;
-	}	
-	return (0);
+		if (!ft_strncmp(big + i, little, little_len))
+			return ((char *)big + i);
+		i++;
+	}
+	return (NULL);
 }
 
 /* #include <stdio.h> */
 /* int	main(void) */
 /* { */
 /*     const char *big = "hi this is a test"; */
-/*     const char *little = "is a test"; */
-/*     size_t len = 10; */
+/*     const char *little = "is"; */
+/*     size_t len = ft_strlen(big); */
 /*  */
 /*     printf("%s\n", ft_strnstr(big, little, len)); */
-/* }	 */
+/* } */
 /*  */
-/* // TODO */
+/* // temp func for this main */
 /* size_t	ft_strlen(const char *s) */
 /* { */
 /*     size_t	i; */
@@ -60,4 +53,17 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 /*     while (*s++) */
 /*         i++; */
 /*     return (i); */
+/* } */
+/*  */
+/* // temp func for this main */
+/* int	ft_strncmp(const char *s1, const char *s2, size_t n) */
+/* { */
+/*     while (n--) */
+/*     { */
+/*         if (*s1 != *s2 || !*s1 || !*s2) */
+/*             return (*s1 - *s2); */
+/*         s1++; */
+/*         s2++; */
+/*     } */
+/*     return (0); */
 /* } */
