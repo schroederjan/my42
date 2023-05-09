@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:38:27 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/08 21:34:32 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/05/09 08:50:28 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-// char	*ft_strdup(const char *s1);
-//
+char	*ft_strdup(const char *s1);
 // void	*ft_calloc(size_t count, size_t size);
 // void	ft_bzero(void *s, size_t n);
 
