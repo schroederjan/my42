@@ -13,10 +13,14 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdint.h>
 
 void	*ft_calloc(size_t num, size_t size)
 {
 	void	*ret;
+
+	if(num != 0 && SIZE_MAX / num < size)
+		return NULL;
 
 	ret = malloc(size * num);
 	if (!ret)
