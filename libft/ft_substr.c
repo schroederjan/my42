@@ -12,28 +12,36 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-// needed here because of declaration conflict
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ret;
+	char	*sub;
+	size_t	s_len;
 
 	if (!s)
 		return (0);
-	if (ft_strlen(s) < len)
-		len = 0;
-	if (ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	ret = malloc(sizeof(*ret) * (len + 1));
-	if (!ret)
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+	{
+		sub = malloc(1);
+		if (sub)
+			*sub = 0;
+		return (sub);
+	}
+	if (s_len < len + start)
+		len = s_len - start;
+	sub = malloc(sizeof(*sub) * (len + 1));
+	if (!sub)
 		return (0);
-	ft_strlcpy(ret, s + start, len + 1);
-	return (ret);
+	ft_strlcpy(sub, s + start, len + 1);
+	return (sub);
 }
+
+// edge cases:
+// 1. s = 0, 
+// 2. start >= s_len, the index beyond s, create empty string malloc(1)
+// 3. s_len - start < len
 
 /* // temp for main only */
 /* size_t	ft_strlen(char const *s) // char const are adapted to substring */
@@ -67,21 +75,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /* int	main(void) */
 /* { */
 /*     char const		*s = "hello and world"; */
-/*     unsigned int	start = 6; */
-/*     size_t			len = 3;	 */
+/*     unsigned int	start; */
+/*     size_t			len = 3; */
 /*     char			*sub; */
 /*  */
-/*     sub = ft_substr(s, start, len); */
-/*  */
-/*     if (sub != NULL) */
+/*     for (start = 0; start < 20; start++) */
 /*     { */
-/*         printf("%s\n", sub); */
-/*         free(sub); */
-/*  */
-/*     } */
-/*     else */
-/*     { */
-/*         printf("Substring operation failed.\n"); */
+/*         sub = ft_substr(s, start, len); */
+/*         if (sub != NULL) */
+/*         { */
+/*             printf("start: %d sub: %s\n", start, sub); */
+/*             free(sub); */
+/*         } */
+/*         else */
+/*             printf("Substring operation failed.\n"); */
 /*     } */
 /*     return (0); */
 /* } */
