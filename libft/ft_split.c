@@ -14,19 +14,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+// aa aa aa
+
 static int	count_words(char const *s, char c)
 {
 	int	count;
 
 	count = 0;
-	while (*s != '\0')
+	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if (*s != '\0')
+		if (*s)
 		{
 			count++;
-			while (*s != '\0' && *s != c)
+			while (*s && *s != c)
 				s++;
 		}
 	}
@@ -39,11 +41,11 @@ static char	*make_word(char const *s, char c)
 	int		i;
 
 	i = 0;
-	while (s[i] != '\0' && s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	i = 0;
-	while (s[i] != '\0' && s[i] != c)
+	while (s[i] && s[i] != c)
 	{
 		word[i] = s[i];
 		i++;
@@ -63,43 +65,45 @@ char	**ft_split(char const *s, char c)
 	words = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!words)
 		return (NULL);
-	while (*s != '\0')
+	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if (*s != '\0')
+		if (*s)
 		{
 			words[i] = make_word(s, c);
 			i++;
-			while (*s != '\0' && *s != c)
+			while (*s && *s != c)
 				s++;
 		}
 	}
-	words[i] = NULL;
+	words[i] = 0;
 	return (words);
 }
 
-/* // temp only */
-/* #include <stdio.h> */
-/* int	main(void) */
-/* { */
-/*     char const *s = "hi this is split"; */
-/*     char		c = ' '; */
-/*     char		**split; */
-/*     int			i = 0; */
-/*  */
-/*     split = ft_split(s, c); */
-/*         while (split[i] != NULL) { */
-/*         printf("%s\n", split[i]); */
-/*         i++; */
-/*     } */
-/*  */
-/*     i = 0; */
-/*     while (split[i] != NULL) { */
-/*         free(split[i]);  // Free each string */
-/*         i++; */
-/*     } */
-/*     free(split);  // Free the array */
-/*  */
-/*     return 0; */
-/* } */
+// temp only
+#include <stdio.h>
+int	main(void)
+{
+	char const *s = "hi this is split";
+	char		c = ' ';
+	char		**split;
+	int			i = 0;
+
+	split = ft_split(s, c);
+	while (split[i]) 
+	{
+		printf("%s\n", split[i]);
+		i++;
+	}
+
+	i = 0;
+	while (split[i]) 
+	{
+		free(split[i]);  // Free each string
+		i++;
+	}
+	free(split);  // Free the array
+
+	return 0;
+}
