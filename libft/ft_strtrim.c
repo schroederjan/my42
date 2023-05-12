@@ -62,23 +62,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*     return (i); */
 /* } */
 /*  */
-/* size_t	ft_strlcpy(char *dest, const char *src, size_t size) */
-/* { */
-/*     size_t	i; */
-/*  */
-/*     i = 0; */
-/*     while (*dest && i + 1 < size) */
-/*     { */
-/*         *dest++ = *src++; */
-/*         i++; */
-/*     } */
-/*     if (i < size) */
-/*         *dest = 0; */
-/*     while (*src++) */
-/*         i++; */
-/*     return (i); */
-/* } */
-/*  */
 /* #include <stdio.h> */
 /* int	main(void) */
 /* { */
