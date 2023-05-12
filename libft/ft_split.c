@@ -13,8 +13,9 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
-// aa aa aa
+// aa bb cc -> 3 words
 
 static int	count_words(char const *s, char c)
 {
@@ -32,6 +33,7 @@ static int	count_words(char const *s, char c)
 				s++;
 		}
 	}
+	/* printf("count: %d\n", count); */
 	return (count);
 }
 
@@ -50,7 +52,7 @@ static char	*make_word(char const *s, char c)
 		word[i] = s[i];
 		i++;
 	}
-	word[i] = '\0';
+	word[i] = 0;
 	return (word);
 }
 
@@ -61,10 +63,10 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	words = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!words)
-		return (NULL);
+		return (0);
 	while (*s)
 	{
 		while (*s == c)
@@ -85,25 +87,17 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int	main(void)
 {
-	char const *s = "hi this is split";
+	char const *s = "aa bb cc";
 	char		c = ' ';
 	char		**split;
 	int			i = 0;
 
 	split = ft_split(s, c);
-	while (split[i]) 
+	while (split[i])
 	{
 		printf("%s\n", split[i]);
-		i++;
-	}
-
-	i = 0;
-	while (split[i]) 
-	{
 		free(split[i]);  // Free each string
 		i++;
 	}
-	free(split);  // Free the array
-
-	return 0;
+	return (0);
 }
