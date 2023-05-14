@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 18:37:49 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/14 18:39:11 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/13 10:09:33 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/13 10:10:26 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	return (c >= '0' && c <= '9');
+	write(fd, &c, 1);
 }

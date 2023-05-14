@@ -20,25 +20,23 @@ void	ft_bzero(void *s, size_t n)
 
 	dest = s;
 	i = 0;
-	while(i++ < n)
+	while (i++ < n)
 		*dest++ = 0;
 }
 
 /* #include <stdio.h> */
 /* #include <string.h> */
 /* #include <stdlib.h> */
+/*  */
 /* int	main(void) */
 /* { */
-/*     char	*s = malloc(sizeof(char) * 3); // first allocate memory to void * */
-/*     size_t	n = 2; //TODO why is it only 2?  */
-/*      */
-/*     //TODO why does it work the way it does? */
+/*     char	*s = malloc(sizeof(char) * 3); */
+/*     size_t	n = 2; */
 /*  */
 /*     strcpy(s, "hi"); // cp string literal to pinter */
-/*  */
 /*     ft_bzero(s, n); // set to zero */
-/*     for (size_t i = 0; i < n; i++) { // loop through the pointer */
-/*         printf("%d ", s[i]);  // Printing the ASCII value of each character */
+/*     for (size_t i = 0; i < n; i++) { */
+/*         printf("%d ", s[i]); */
 /*     } */
 /*  */
 /*     free(s); // Don't forget to free the memory */

@@ -33,7 +33,6 @@ static int	count_words(char const *s, char c)
 				s++;
 		}
 	}
-	/* printf("count: %d\n", count); */
 	return (count);
 }
 
@@ -83,21 +82,21 @@ char	**ft_split(char const *s, char c)
 	return (words);
 }
 
-// temp only
-#include <stdio.h>
-int	main(void)
-{
-	char const *s = "aa bb cc";
-	char		c = ' ';
-	char		**split;
-	int			i = 0;
-
-	split = ft_split(s, c);
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		free(split[i]);  // Free each string
-		i++;
-	}
-	return (0);
-}
+/* // temp only */
+/* #include <stdio.h> */
+/* int	main(void) */
+/* { */
+/*     char const *s = "aa bb cc"; */
+/*     char		c = ' '; */
+/*     char		**split; */
+/*     int			i = 0; */
+/*  */
+/*     split = ft_split(s, c); */
+/*     while (split[i]) */
+/*     { */
+/*         printf("%s\n", split[i]); */
+/*         free(split[i]);  // Free each string */
+/*         i++; */
+/*     } */
+/*     return (0); */
+/* } */

@@ -19,12 +19,11 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void	*ret;
 
-	if(num != 0 && SIZE_MAX / num < size)
-		return NULL;
-
+	if (num != 0 && SIZE_MAX / num < size)
+		return (NULL);
 	ret = malloc(size * num);
 	if (!ret)
-		return (0);
+		return (NULL);
 	ft_bzero(ret, size * num);
 	return (ret);
 }
