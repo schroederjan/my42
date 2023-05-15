@@ -74,13 +74,13 @@ char	*ft_itoa(int n)
 	return (alpha);
 }
 
-int	main(void)
-{
-	int		n;
-	char	*a;
-
-	n = -2147483648;
-	a = ft_itoa(n);
-	printf("%s\n", a);
-	free(a);
-}
+/* int	main(void) */
+/* { */
+/*     int		n; */
+/*     char	*a; */
+/*  */
+/*     n = -2147483648; */
+/*     a = ft_itoa(n); */
+/*     printf("%s\n", a); */
+/*     free(a); */
+/* } */

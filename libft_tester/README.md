@@ -1,3 +1,5 @@
+Adjusted Version of: https://github.com/Tripouille/libftTester
+
 # libft_tester (2019+)
 Tester for the libft project of 42 school (with personalized leaks checking on
 mac, using valgrind on linux) Clone this tester in your libft repository, or
