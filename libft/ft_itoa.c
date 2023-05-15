@@ -27,7 +27,7 @@ static int	nbr_len(int nbr)
 		len = 0;
 	while (nbr != 0)
 	{
-		nbr = nbr / 10;
+		nbr /= 10;
 		len++;
 	}
 	return (len);
@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 	nbr = remove_sign(n);
 	alpha = malloc(sizeof(char) * len + 1);
 	if (!alpha)
-		return (0);
+		return (NULL);
 	alpha[len--] = 0;
 	while (len >= 0)
 	{
@@ -74,13 +74,13 @@ char	*ft_itoa(int n)
 	return (alpha);
 }
 
-/* int	main(void) */
-/* { */
-/*     int		n; */
-/*     char	*a; */
-/*  */
-/*     n = '1'; */
-/*     a = ft_itoa(n); */
-/*     printf("%s\n", a); */
-/*     free(a); */
-/* } */
+int	main(void)
+{
+	int		n;
+	char	*a;
+
+	n = -2147483648;
+	a = ft_itoa(n);
+	printf("%s\n", a);
+	free(a);
+}
