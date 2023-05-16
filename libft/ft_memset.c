@@ -11,9 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t n)
 {
@@ -25,7 +23,9 @@ void	*ft_memset(void *b, int c, size_t n)
 	return (ret);
 }
 
-/* // simple main to test */
+// simple main to test
+/* #include <stdio.h> */
+/*  */
 /* int	main(void) */
 /* { */
 /*     char	buf[] = "helllllooo"; */
@@ -41,7 +41,7 @@ void	*ft_memset(void *b, int c, size_t n)
 /*     printf("%s\n", buf); */
 /* } */
 
-// more test for using malloc and not needing to add a \0 for printing
+/* more test for using malloc and not needing to add a \0 for printing */
 /* int	main(void) */
 /* { */
 /*     char	*buf; */

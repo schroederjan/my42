@@ -12,9 +12,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 static int	nbr_len(int nbr)
 {
@@ -74,6 +71,10 @@ char	*ft_itoa(int n)
 	return (alpha);
 }
 
+// temp for main
+//
+/* #include <stdio.h> */
+/*  */
 /* int	main(void) */
 /* { */
 /*     int		n; */

@@ -12,8 +12,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
-#include <stdlib.h>
 
 size_t	is_in_set(char c, char const *set)
 {

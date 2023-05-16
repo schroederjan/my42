@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:38:27 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/16 18:29:29 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:48:16 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdint.h>
+# include <limits.h>
 
 /* libc */
 int		ft_isdigit(int c);
@@ -50,8 +54,8 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-// void	ft_putendl_fd(char *s, int fd);
-// void	ft_putnbr_fd(int n, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 /* bonus */
 int		ft_isspace(int c);

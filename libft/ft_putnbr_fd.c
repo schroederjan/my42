@@ -2,23 +2,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 18:30:07 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/16 19:09:48 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/16 19:28:25 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/16 19:33:56 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static unsigned int	remove_sign(int n)
 {
-	if (!s)
-		return ;
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	if (n < 0)
+		return (-n);
+	else
+		return (n);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int	num;
+
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	num = remove_sign(n);
+	if (num > 9)
+	{
+		ft_putnbr_fd(num / 10, fd);
+		ft_putnbr_fd(num % 10, fd);
+	}
+	else
+		ft_putchar_fd(num + '0', fd);
 }
 
 /* // temp for main */
@@ -29,7 +45,11 @@ void	ft_putstr_fd(char *s, int fd)
 /*  */
 /* int	main(void) */
 /* { */
-/*     char *s = "Hello."; */
-/*     ft_putstr_fd(s, 1); */
-/* } */
+/*     int i; */
 /*  */
+/*     for (i = -10; i <= 10; i++) */
+/*     { */
+/*         ft_putnbr_fd(i, 1); */
+/*         write(1, "\n", 1); */
+/*     } */
+/* } */
