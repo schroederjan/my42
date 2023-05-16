@@ -5,8 +5,9 @@ LIBFT_PATH		= ../libft
 TESTS_PATH		= tests/
 MANDATORY		= atoi strlen toupper tolower isdigit isalpha isalnum isascii \
 				  isprint strchr strrchr strlcpy strlcat memset memchr memcpy \
-				  memcmp strncmp strnstr strdup calloc bzero \
-				  substr strjoin strtrim split itoa putchar_fd strmapi
+				  memcmp strncmp strnstr strdup calloc bzero substr strjoin \
+				  strtrim split itoa putchar_fd \
+				  strmapi striteri
 # MANDATORY		= memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
 #                 isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \
 #                 atoi calloc strdup substr strjoin strtrim split itoa strmapi putchar_fd putstr_fd \
