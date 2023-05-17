@@ -43,6 +43,8 @@ static char	*make_word(char const *s, char c)
 	while (s[i] && s[i] != c)
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return (NULL);
 	i = 0;
 	while (s[i] && s[i] != c)
 	{
@@ -53,31 +55,47 @@ static char	*make_word(char const *s, char c)
 	return (word);
 }
 
+static char	**ft_malloc_error(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**words;
+	char	**tab;
 	int		i;
 
 	i = 0;
 	if (!s)
 		return (0);
-	words = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!words)
-		return (0);
+	tab = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!tab)
+		return (NULL);
 	while (*s)
 	{
 		while (*s == c)
 			s++;
 		if (*s)
 		{
-			words[i] = make_word(s, c);
+			tab[i] = make_word(s, c);
+			if (!tab[i])
+				return (ft_malloc_error(tab));
 			i++;
 			while (*s && *s != c)
 				s++;
 		}
 	}
-	words[i] = 0;
-	return (words);
+	tab[i] = 0;
+	return (tab);
 }
 
 /* // temp only */
