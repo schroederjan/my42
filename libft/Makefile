@@ -14,6 +14,9 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(AR) rcs $@ $^
 
+bonus: $(OBJECTS) $(BOBJECTS)
+	$(AR) -r $(NAME) $?
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -25,5 +28,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean bonus fclean re
 
