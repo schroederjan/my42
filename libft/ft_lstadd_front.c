@@ -22,36 +22,36 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
-// temp for main
-#include <stdio.h>
-t_list *ft_lstnew(void *content)
-{
-	t_list *node;
-
-	node = (t_list *)malloc(sizeof(t_list));
-	if (node)
-	{
-		node->content = content;
-		node->next = NULL;
-	}
-	return (node);
-}
-
-int main()
-{
-	t_list *head = NULL;
-	t_list *node1 = ft_lstnew("a");
-	t_list *node2 = ft_lstnew("b");
-
-	ft_lstadd_front(&head, node1);
-	ft_lstadd_front(&head, node2);
-
-	t_list *temp = head;
-	while (temp != NULL)
-	{
-		printf("%s ", (char *)temp->content);
-		temp = temp->next;
-	}
-
-	return 0;
-}
+/* // temp for main */
+/* #include <stdio.h> */
+/* t_list *ft_lstnew(void *content) */
+/* { */
+/*     t_list *node; */
+/*  */
+/*     node = malloc(sizeof(t_list)); */
+/*     if (node) */
+/*     { */
+/*         node->content = content; */
+/*         node->next = NULL; */
+/*     } */
+/*     return (node); */
+/* } */
+/*  */
+/* int main() */
+/* { */
+/*     t_list *head = NULL; */
+/*     t_list *node1 = ft_lstnew("a"); */
+/*     t_list *node2 = ft_lstnew("b"); */
+/*  */
+/*     ft_lstadd_front(&head, node1); */
+/*     ft_lstadd_front(&head, node2); */
+/*  */
+/*     t_list *temp = head; */
+/*     while (temp != NULL) */
+/*     { */
+/*         printf("%s ", (char *)temp->content); */
+/*         temp = temp->next; */
+/*     } */
+/*  */
+/*     return 0; */
+/* } */
