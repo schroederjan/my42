@@ -15,7 +15,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*current;
 
 	if (lst)
 	{
@@ -23,8 +23,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			*lst = new;
 		else
 		{
-			tmp = ft_lstlast(*(lst));
-			tmp->next = new;
+			current = ft_lstlast(*lst);
+			current->next = new;
 		}
 	}
 }
@@ -33,7 +33,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 /* t_list	*ft_lstnew(void *content) */
 /* { */
 /*     t_list	*ret; */
-/*      */
+/*  */
 /*     ret = malloc(sizeof(t_list)); */
 /*     if (!ret) */
 /*         return (NULL); */
@@ -44,13 +44,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 /*  */
 /* t_list	*ft_lstlast(t_list *lst) */
 /* { */
-/*     t_list	*tmp; */
+/*     t_list	*current; */
 /*  */
-/*     tmp = lst; */
+/*     current = lst; */
 /*     if (lst) */
-/*         while (tmp->next) */
-/*             tmp = tmp->next; */
-/*     return (tmp); */
+/*         while (current->next) */
+/*             current = current->next; */
+/*     return (current); */
 /* } */
 /*  */
 /* #include <stdio.h> */
@@ -59,12 +59,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 /*     t_list	*head = NULL; */
 /*     t_list	*node1; */
 /*     t_list	*node2; */
+/*     t_list	*node3; */
 /*  */
 /*     node1 = ft_lstnew("a"); */
 /*     node2 = ft_lstnew("b"); */
+/*     node3 = ft_lstnew("c"); */
 /*  */
 /*     ft_lstadd_back(&head, node1); */
 /*     ft_lstadd_back(&head, node2); */
+/*     ft_lstadd_back(&head, node3); */
 /*  */
 /*     // print whole list */
 /*     while (head) */
