@@ -37,7 +37,7 @@ int	ft_lstsize(t_list *lst)
 /*     if (!ret) */
 /*         return (NULL); */
 /*     ret->content = content; */
-/*     ret->next = 0; */
+/*     ret->next = NULL; */
 /*     return (ret); */
 /* } */
 /*  */
@@ -61,4 +61,5 @@ int	ft_lstsize(t_list *lst)
 /*     ft_lstadd_front(&head, node_2); */
 /*  */
 /*     printf("%d\n", ft_lstsize(head)); */
+/*     printf("%s\n", (char *)node_1->content); */
 /* } */

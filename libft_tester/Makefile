@@ -9,8 +9,7 @@ MANDATORY		= atoi strlen toupper tolower isdigit isalpha isalnum isascii \
 				  strtrim split itoa putchar_fd putstr_fd putendl_fd putnbr_fd\
 				  strmapi striteri
 BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
-				  lstclear lstiter
-# BONUS			= lstmap
+				  lstclear lstiter lstmap
 CC		= clang++
 CFLAGS	= -g3 -ldl -gdwarf-4 -std=c++11 -I utils/ -I$(LIBFT_PATH) 
 UNAME = $(shell uname -s)
