@@ -6,11 +6,16 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:37:37 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/16 19:47:22 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/05/21 18:01:39 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isspace(int c)
+{
+	return ((c >= 9 && c <= 13) || c == 32);
+}
 
 int	ft_atoi(const char *str)
 {
