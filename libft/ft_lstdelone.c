@@ -56,7 +56,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 /*  */
 /*     current = lst; */
 /*     while (current->next) */
-/*         current = current->next;  */
+/*         current = current->next; */
 /*     return (current); */
 /* } */
 /*  */
@@ -81,15 +81,18 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 /* } */
 /*  */
 /* #include <stdio.h> */
+/* #include <string.h> */
 /* int	main(void) */
 /* { */
 /*     t_list *head = 0; */
-/*     char *dynamic_content = malloc(100 * sizeof(char));  
- *     // Imagine this is filled with meaningful data */
+/*     char *dynamic_content = malloc(100 * sizeof(char)); */
+/*     // Imagine this is filled with meaningful data */
+/*     strcpy(dynamic_content,"abc"); */
 /*     t_list *node = ft_lstnew(dynamic_content); */
 /*  */
 /*     ft_lstadd_back(&head, node); */
-/*     printf("%d\n", ft_lstsize(head)); */
+/*     printf("%s\n", (char *)node->content); */
+/*  */
 /*     ft_lstdelone(node, delete_content); */
-/*     // after deletion content the content is empty... */
+/*     printf("content and node has been freed, nothing to print"); */
 /* } */
