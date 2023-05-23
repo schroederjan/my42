@@ -1,3 +1,4 @@
+/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +7,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:37:37 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/21 18:01:39 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:35:00 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +40,16 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)number);
 }
+
+/* // temp for main */
+/* #include <stdio.h> */
+/*  */
+/* int	ft_isdigit(int c) */
+/* { */
+/*     return (c >= '0' && c <= '9'); */
+/* } */
+/*  */
+/* int	main(void) */
+/* { */
+/*     printf("%d\n", ft_atoi("42")); */
+/* }	 */
