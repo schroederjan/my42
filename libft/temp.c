@@ -1,17 +1,11 @@
 /*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 
-int	ft_isspace(int c)
+#include "libft.h"
+
+
+#include <stdio.h>
+
+int	main(void)
 {
-	return ((c >= 9 && c <= 13) || c == 32);
+	printf("%s\n", result);
 }
-
-int ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_atoi(const char *str)
-{
-
-}	
-

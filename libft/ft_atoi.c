@@ -31,13 +31,7 @@ int	ft_atoi(const char *str)
 		if (*(str++) == '-')
 			sign *= -1;
 	while (ft_isdigit(*str))
-	{
 		number = number * 10 + sign * (*str++ - '0');
-		if (number > INT_MAX)
-			return (-1);
-		else if (number < INT_MIN)
-			return (0);
-	}
 	return ((int)number);
 }
 
