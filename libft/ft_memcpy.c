@@ -15,14 +15,14 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void *orig_dest;
+	unsigned char	*d;
 
-	orig_dest = dest;
-	if (dest == NULL && src == NULL)
+	d = (unsigned char *)dest;
+	if (!d && !src)
 		return (NULL);
-	while (--n)
-		*((unsigned char *)dest++) = *((unsigned char *)src++);
-	return (orig_dest);
+	while (n--)
+		*d++ = *((unsigned char *)src++);
+	return (dest);
 }
 
 /* #include <stdio.h> */
@@ -30,7 +30,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 /* { */
 /*     char dest[5] = "12345"; */
 /*     const char *src = "abcde"; */
-/*     size_t	n = 2; */
+/*     size_t	n = 10; */
 /*  */
 /*     printf("%s\n", (unsigned char *)ft_memcpy(dest, src, n)); */
 /* } */

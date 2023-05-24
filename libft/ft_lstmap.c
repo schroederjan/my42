@@ -11,35 +11,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// this lstmap will take care of using malloc inside the f()
 #include "libft.h"
+
+t_list	*new_node(void *(*f)(void *), void *content, void (*del)(void *))
+{
+	void	*new_content;
+	t_list	*new;
+
+	new_content = f(content);
+	new = ft_lstnew(new_content);
+	if (!new)
+		del(new_content);
+	return (new);
+}
+
+t_list	*add_to_list(t_list **head, t_list *new, void (*del)(void *))
+{
+	if (!new)
+	{
+		ft_lstclear(head, del);
+		return (NULL);
+	}
+	ft_lstadd_back(head, new);
+	return (*head);
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*current;
 	t_list	*head;
 
-	if (lst)
+	if (!lst)
+		return (NULL);
+	head = new_node(f, lst->content, del);
+	if (!head)
+		return (NULL);
+	lst = lst->next;
+	while (lst)
 	{
-		current = lst;
-		head = ft_lstnew(f(current->content));
-		if (!head)
+		new = new_node(f, lst->content, del);
+		if (!add_to_list(&head, new, del))
 			return (NULL);
-		current = current->next;
-		while (current)
-		{
-			new = ft_lstnew(f(current->content));
-			if (!new)
-			{
-				ft_lstclear(&head, del);
-				return (NULL);
-			}
-			ft_lstadd_back(&head, new);
-			current = current->next;
-		}
-		return (head);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (head);
 }
 
 /* // temp for main */
@@ -47,7 +63,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 /* t_list	*ft_lstnew(void *content) */
 /* { */
 /*     t_list *ret; */
-/*      */
+/*  */
 /*     ret = malloc(sizeof(t_list)); */
 /*     if (!ret) */
 /*         return (NULL); */
