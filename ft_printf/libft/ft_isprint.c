@@ -1,35 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/04 18:34:49 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/04 18:35:57 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdarg.h>
-# include <stdint.h>
-# include <unistd.h>
-// # include "../libft/libft.h"
-
-// ------ PRINTF ------ //
-
-int		ft_printf(const char *format, ...);
-int		ft_parser(const char *format, va_list args);
-
-// ------ SPECIFIERS ------ //
-
-// c
-
-// s
-int		ft_printstr(char *str);
-// d || i
-int		ft_printnbr(int n);
-
-#endif
+int	ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}

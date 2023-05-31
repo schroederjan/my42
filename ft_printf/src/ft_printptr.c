@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/31 20:03:32 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/31 20:08:14 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include <unistd.h>
-// # include "../libft/libft.h"
+// TODO
+void	ft_putptr(uintptr_t num)
+{
 
-// ------ PRINTF ------ //
+}
 
-int		ft_printf(const char *format, ...);
-int		ft_parser(const char *format, va_list args);
+// TODO
+int	ft_ptrlen(uintptr_t num)
+{
 
-// ------ SPECIFIERS ------ //
+}
 
-// c
+int	ft_printptr(unsigned long long ptr)
+{
+	int	count;
 
-// s
-int		ft_printstr(char *str);
-// d || i
-int		ft_printnbr(int n);
-
-#endif
+	count = 0;
+	count += write(1, "0x", 2);
+	if (ptr == 0)
+		count += write(1, "0", 1);
+	else
+	{
+		ft_putptr(ptr);
+		count += ft_ptrlen(ptr);
+	}
+	return (count);
+}

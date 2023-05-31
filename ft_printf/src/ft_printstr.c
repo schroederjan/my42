@@ -1,35 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/31 19:41:47 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/31 19:49:25 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include <unistd.h>
-// # include "../libft/libft.h"
+void	ft_putstr(char *str)
+{
+	int	i;
 
-// ------ PRINTF ------ //
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 
-int		ft_printf(const char *format, ...);
-int		ft_parser(const char *format, va_list args);
+}
 
-// ------ SPECIFIERS ------ //
+int		ft_printstr(char *str)
+{
+	int i;
 
-// c
+	i = 0;
+	if (str == NULL) // TODO why?
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 
-// s
-int		ft_printstr(char *str);
-// d || i
-int		ft_printnbr(int n);
-
-#endif
+	return (i);
+}

@@ -1,35 +1,31 @@
+/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/08 19:07:20 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/08 19:12:29 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include <unistd.h>
-// # include "../libft/libft.h"
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != (unsigned char)c)
+		if (!*s++)
+			return (NULL);
+	return ((char *)s);
+}
 
-// ------ PRINTF ------ //
-
-int		ft_printf(const char *format, ...);
-int		ft_parser(const char *format, va_list args);
-
-// ------ SPECIFIERS ------ //
-
-// c
-
-// s
-int		ft_printstr(char *str);
-// d || i
-int		ft_printnbr(int n);
-
-#endif
+/* #include <stdio.h> */
+/* int	main(void) */
+/* { */
+/*     const char *s = "abcdefg"; */
+/*     int	c = 0; */
+/*  */
+/*     printf("%s\n", strchr(s, c)); */
+/* } */

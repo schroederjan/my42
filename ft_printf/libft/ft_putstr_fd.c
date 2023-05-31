@@ -1,35 +1,35 @@
+/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/16 18:30:07 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/16 19:09:48 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdint.h>
-# include <unistd.h>
-// # include "../libft/libft.h"
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+		ft_putchar_fd(*s++, fd);
+}
 
-// ------ PRINTF ------ //
-
-int		ft_printf(const char *format, ...);
-int		ft_parser(const char *format, va_list args);
-
-// ------ SPECIFIERS ------ //
-
-// c
-
-// s
-int		ft_printstr(char *str);
-// d || i
-int		ft_printnbr(int n);
-
-#endif
+/* // temp for main */
+/* void	ft_putchar_fd(char c, int fd) */
+/* { */
+/*     write(fd, &c, 1); */
+/* } */
+/*  */
+/* int	main(void) */
+/* { */
+/*     char *s = "Hello."; */
+/*     ft_putstr_fd(s, 1); */
+/* } */
+/*  */
