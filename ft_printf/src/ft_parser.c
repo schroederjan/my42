@@ -1,39 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 10:34:15 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/29 11:58:55 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/31 18:12:38 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/31 18:56:56 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_c(char c)
+int	ft_printchar(int c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_print_char(char c, t_flags flags)
-{
-
-}
-
-int	ft_print_char(char c, t_flags flags)
+int	ft_formats(va_list args, const char format)
 {
 	int	count;
 
 	count = 0;
-	if (flags.left == 1)
-		count += ft_print_c(c);
-	count += ft_pad_width(flags.width, 1, flags.zero);
-	if (flags.left == 0)
-		count += ft_print_c(c);
+	if (format == 'c')
+		count += ft_printchar(va_arg(args, int));
+	// TODO more
 	return (count);
 }
 
+int	ft_parser(const char *format, va_list args)
+{
+	int	i;
+	int	count;
 
+	i = 0;
+	count = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			count += ft_formats(args, format[i + 1]);
+			i++;
+		}
+		else
+			count += ft_printchar(format[i]);
+		i++;
+	}
+	return (count);
+}
