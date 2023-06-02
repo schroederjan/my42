@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:12:38 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:51:14 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/02 08:19:51 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_formats(va_list args, const char format)
 		count += ft_printstr(va_arg(args, char *)); // TODO why char *?
 	if (format == 'd' || format == 'i')
 		count += ft_printnbr(va_arg(args, int));
+	if (format == 'p')
+		count += ft_printptr(va_arg(args, uintptr_t));
 	// TODO more
 	return (count);
 }

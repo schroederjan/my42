@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 19:54:36 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:53:44 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ int		ft_parser(const char *format, va_list args);
 // ------ SPECIFIERS ------ //
 
 // c
-
+int		ft_putchar(int c);
 // s
 int		ft_printstr(char *str);
+void	ft_putstr(char *str);
 // d || i
 int		ft_printnbr(int n);
+// p
+int		ft_printptr(uintptr_t ptr);
 
 #endif
