@@ -6,11 +6,17 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:41:47 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 18:21:32 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:49:57 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+
+int	ft_printchar(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
 void	ft_putstr(char *str)
 {

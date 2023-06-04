@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:40:17 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 18:20:58 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:50:50 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	ft_puthex(unsigned int num, const char format)
 		ft_puthex(num / 16, format);
 	num = num % 16;
 	if (num <= 9)
-		ft_putchar(num + '0');
+		ft_printchar(num + '0');
 	else
 	{
 		if (format == 'x')
-			ft_putchar(num - 10 + 'a');
+			ft_printchar(num - 10 + 'a');
 		if (format == 'X')
-			ft_putchar(num - 10 + 'A');
+			ft_printchar(num - 10 + 'A');
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 15:54:44 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 18:21:37 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:51:55 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_putunsigned(unsigned int n)
 	if (n >= 10)
 		ft_putunsigned(n / 10);
 	n = n % 10;
-	ft_putchar(n + '0');
+	ft_printchar(n + '0');
 }
 
 int	ft_printunsigned(unsigned int n)

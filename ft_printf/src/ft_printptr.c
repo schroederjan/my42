@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:03:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 18:21:26 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:51:41 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	ft_putptr(uintptr_t num)
 		ft_putptr(num / 16);
 	num = num % 16;
 	if (num <= 9)
-		ft_putchar(num + '0');
+		ft_printchar(num + '0');
 	else
-		ft_putchar(num - 10 + 'a');
+		ft_printchar(num - 10 + 'a');
 }
 
 int	ft_printptr(uintptr_t ptr)

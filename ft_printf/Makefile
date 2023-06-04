@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 18:51:23 by jschroed          #+#    #+#              #
-#    Updated: 2023/06/04 19:23:42 by jschroed         ###   ########.fr        #
+#    Updated: 2023/06/04 19:46:19 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJF		=	.cache_exists
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			@$(AR) $(NAME) $(OBJ)
+			@$(AR) $(NAME) $^
 			@echo "ft_printf compiled!"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
