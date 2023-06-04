@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:12:38 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 16:06:54 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 16:39:29 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_formats(va_list args, const char format)
 		count += ft_printptr(va_arg(args, uintptr_t));
 	if (format == 'u')
 		count += ft_printunsigned(va_arg(args, unsigned int));
+	if (format == 'x' || format == 'X')
+		count += ft_printhex(va_arg(args, unsigned int), format);
 	// TODO more
 	return (count);
 }
