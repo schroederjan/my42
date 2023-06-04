@@ -6,11 +6,11 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:03:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/02 22:19:25 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:21:26 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 int	ft_ptrlen(uintptr_t num)
 {
@@ -42,7 +42,7 @@ int	ft_printptr(uintptr_t ptr)
 
 	if (ptr == 0)
 		count = write(1, "(nil)", 5);
-	else 
+	else
 	{
 		count = 0;
 		count += write(1, "0x", 2);

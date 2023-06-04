@@ -6,11 +6,11 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:15:25 by jschroed          #+#    #+#             */
-/*   Updated: 2023/05/31 18:34:46 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:20:52 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 int	ft_putchar(int c)
 {
