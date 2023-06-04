@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:12:38 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/04 18:19:27 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:27:32 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_formats(va_list args, const char format)
 	if (format == 's')
 		count += ft_printstr(va_arg(args, char *));
 	if (format == 'd' || format == 'i')
-		count += ft_printnbr(va_arg(args, int));
+		count += ft_printint(va_arg(args, int));
 	if (format == 'p')
 		count += ft_printptr(va_arg(args, uintptr_t));
 	if (format == 'u')
