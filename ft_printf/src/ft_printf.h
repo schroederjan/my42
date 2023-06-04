@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:38:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/06/02 21:53:44 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:58:25 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	ft_putstr(char *str);
 int		ft_printnbr(int n);
 // p
 int		ft_printptr(uintptr_t ptr);
+// u
+int		ft_printunsigned(unsigned int num);
 
 #endif
