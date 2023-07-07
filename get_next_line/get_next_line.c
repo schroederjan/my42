@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:45:23 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/06 19:32:46 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:18:47 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 		if (rd_bytes == -1)
 		{
 			free(buff);
-			return(NULL);
+			free(left_str);
+			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
 		left_str = ft_strjoin(left_str, buff);
 	}
 	free(buff);
-	return(left_str);
+	return (left_str);
 }
 
 char	*get_next_line(int fd)
@@ -43,7 +44,7 @@ char	*get_next_line(int fd)
 	static char	*left_str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0); // not NULL?
+		return (NULL);
 	left_str = ft_read_to_left_str(fd, left_str);
 	if (!left_str)
 		return (NULL);
