@@ -41,85 +41,85 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *left_str, char *buff)
+char	*ft_strjoin(char *rest_str, char *buff)
 {
 	size_t	i;
 	size_t	j;
 	char	*str;
 
-	if (!left_str)
+	if (!rest_str)
 	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
+		rest_str = (char *)malloc(1 * sizeof(char));
+		rest_str[0] = '\0';
 	}
-	if (!left_str || !buff)
+	if (!rest_str || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(left_str) + ft_strlen(buff)) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(rest_str) + ft_strlen(buff)) + 1);
 	if (str == NULL)
 		return (NULL);
 	i = -1;
 	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
+	if (rest_str)
+		while (rest_str[++i] != '\0')
+			str[i] = rest_str[i];
 	while (buff[j] != '\0')
 		str[i++] = buff[j++];
-	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
-	free(left_str);
+	str[ft_strlen(rest_str) + ft_strlen(buff)] = '\0';
+	free(rest_str);
 	return (str);
 }
 
-char	*ft_get_line(char *left_str)
+char	*ft_get_line(char *rest_str)
 {
 	int		i;
 	char	*str;
 
 	i = 0;
-	if (!left_str[i])
+	if (!rest_str[i])
 		return (NULL);
-	while (left_str[i] && left_str[i] != '\n')
+	while (rest_str[i] && rest_str[i] != '\n')
 		i++;
 	str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (left_str[i] && left_str[i] != '\n')
+	while (rest_str[i] && rest_str[i] != '\n')
 	{
-		str[i] = left_str[i];
+		str[i] = rest_str[i];
 		i++;
 	}
-	if (left_str[i] == '\n')
+	if (rest_str[i] == '\n')
 	{
-		str[i] = left_str[i];
+		str[i] = rest_str[i];
 		i++;
 	}
 	str[i] = '\0';
 	return (str);
 }
 
-char	*ft_get_more(char *left_str)
+char	*ft_update_rest_str(char *rest_str)
 {
 	int		i;
 	int		j;
 	char	*str;
 
 	i = 0;
-	while (left_str[i] && left_str[i] != '\n')
+	while (rest_str[i] && rest_str[i] != '\n')
 		i++;
-	if (!left_str[i])
+	if (!rest_str[i]) //TODO check why?
 	{
-		free(left_str);
+		free(rest_str);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen(rest_str) - i + 1)); //TODO do i need sizeof char?
 	if (!str)
 		return (NULL);
 	i++;
 	j = 0;
-	while (left_str[i])
-		str[j++] = left_str[i++];
+	while (rest_str[i])
+		str[j++] = rest_str[i++];
 	str[j] = '\0';
-	free(left_str);
+	free(rest_str);
 	return (str);
 }
 
@@ -135,8 +135,8 @@ char	*ft_get_more(char *left_str)
 /*     printf("\n"); */
 /*     printf("%c", *ft_strchr("abc", 'b')); */
 /*     printf("\n"); */
-/*     char *left_str = strdup("abc"); */
+/*     char *rest_str = strdup("abc"); */
 /*     char *buff = "def"; */
-/*     char *result = ft_strjoin(left_str, buff); */
+/*     char *result = ft_strjoin(rest_str, buff); */
 /*     printf("%s", result); */
 /* } */
