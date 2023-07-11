@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:34:37 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/07 18:59:46 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:38:10 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 
 char	*get_next_line(int fd);
 
-char	*ft_get_line(char *rest_str);
-char	*ft_read_to_rest_str(int fd, char *rest_str);
+char	*ft_get_line(char *stash);
+char	*ft_read_to_stash(int fd, char *stash);
 
 size_t	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *rest_str, char *buff);
-char	*ft_update_rest_str(char *rest_str);
+char	*ft_strjoin(char *stash, char *buff);
+char	*ft_update_stash(char *stash);
 
 #endif
