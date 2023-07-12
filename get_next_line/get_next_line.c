@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:45:23 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/11 19:39:15 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:06:51 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,27 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* [> Temp <] */
-/* #include <stdio.h> */
-/* #include <fcntl.h> */
-/* int	main(void) */
-/* { */
-/*     char *line; */
-/*     int fd; */
-/*  */
-/*     fd = open("test.txt", O_RDONLY); */
-/*     while (1) */
-/*     { */
-/*         line = get_next_line(fd); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd); */
-/*             return(0); */
-/*         } */
-/*         printf("line: %s", line); */
-/*         free(line); */
-/*     } */
-/*     close(fd); */
-/*     return (0); */
-/* } */
+/* Temp */
+#include <stdio.h>
+#include <fcntl.h>
+int	main(void)
+{
+	char *line;
+	int fd;
+
+	fd = open("test_1.txt", O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd);
+			return(0);
+		}
+		printf("line: %s", line);
+		free(line);
+	}
+	close(fd);
+	return (0);
+}
