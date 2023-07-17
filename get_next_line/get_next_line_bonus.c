@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:45:23 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/13 19:22:43 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:58:32 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ char	*ft_read_to_stash(int fd, char *stash)
 		if (num_bytes_read == -1)
 		{
 			free(buff);
-			free(stash);
-			return (NULL);
+			free(stash); return (NULL);
 		}
 		buff[num_bytes_read] = '\0';
 		stash = ft_strjoin(stash, buff);

@@ -33,10 +33,22 @@ done
 
 if (( $bonus )); then
   # If --bonus is present, run the bonus command.
+  echo "#############"
+  echo "## compiling: $buffer_size, BONUS=True"
+  echo "#############"
   cc -Wall -Werror -Wextra $buffer_size get_next_line_bonus.c \
     get_next_line_utils_bonus.c && ./a.out && valgrind --leak-check=full ./a.out
+  echo "##########"
+  echo "## DONE ##"
+  echo "##########"
 else
   # If --bonus is not present, run the regular command.
+  echo "#############"
+  echo "## compiling: $buffer_size, BONUS=True"
+  echo "#############"
   cc -Wall -Werror -Wextra $buffer_size get_next_line.c \
     get_next_line_utils.c && ./a.out && valgrind --leak-check=full ./a.out
+  echo "##########"
+  echo "## DONE ##"
+  echo "##########"
 fi
