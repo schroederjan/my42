@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:45:23 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/13 19:38:56 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/08/14 19:51:48 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,123 +52,101 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/* [> Temp <] */
-/* int	main(void) */
-/* { */
-/*     char *line; */
-/*     int fd; */
-/*  */
-/*     fd = open("test_1.txt", O_RDONLY); */
-/*     while (1) */
-/*     { */
-/*         line = get_next_line(fd); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd); */
-/*             return(0); */
-/*         } */
-/*         printf("line: %s", line); */
-/*         free(line); */
-/*     } */
-/*     close(fd); */
-/*     return (0); */
-/* } */
+/* Temp */
+int	main(void)
+{
+	char	*line;
+	int		fd1;
+	int		fd2;
+	int		fd3;
+	int		eof1 = 0, eof2 = 0, eof3 = 0;
 
-/* int	main(void) */
-/* { */
-/*     char	*line; */
-/*     int		fd1; */
-/*     int		fd2; */
-/*     int		fd3; */
-/*     int		eof1 = 0, eof2 = 0, eof3 = 0; */
-/*  */
-/*     fd1 = open("test.txt", O_RDONLY);; */
-/*     fd2 = open("test1.txt", O_RDONLY); */
-/*     fd3 = open("test2.txt", O_RDONLY); */
-/*  */
-/*     while (!(eof1 && eof2 && eof3)) */
-/*     { */
-/*         line = get_next_line(fd1); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd1); */
-/*             eof1 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*  */
-/*         line = get_next_line(fd2); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd2); */
-/*             eof2 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*  */
-/*         line = get_next_line(fd3); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd3); */
-/*             eof3 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*  */
-/*         line = get_next_line(fd3); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd3); */
-/*             eof3 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*  */
-/*         line = get_next_line(fd2); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd2); */
-/*             eof2 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*  */
-/*         line = get_next_line(fd1); */
-/*         if (line == NULL) */
-/*         { */
-/*             free(line); */
-/*             close(fd1); */
-/*             eof1 = 1; */
-/*         } */
-/*         else */
-/*         { */
-/*             printf("%s", line); */
-/*             free(line); */
-/*         } */
-/*     } */
-/*     close(fd1); */
-/*     close(fd2); */
-/*     close(fd3); */
-/*     return (0); */
-/* } */
+	fd1 = open("test.txt", O_RDONLY);;
+	fd2 = open("test1.txt", O_RDONLY);
+	fd3 = open("test2.txt", O_RDONLY);
+
+	while (!(eof1 && eof2 && eof3))
+	{
+		line = get_next_line(fd1);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd1);
+			eof1 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+
+		line = get_next_line(fd2);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd2);
+			eof2 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+
+		line = get_next_line(fd3);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd3);
+			eof3 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+
+		line = get_next_line(fd3);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd3);
+			eof3 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+
+		line = get_next_line(fd2);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd2);
+			eof2 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+
+		line = get_next_line(fd1);
+		if (line == NULL)
+		{
+			free(line);
+			close(fd1);
+			eof1 = 1;
+		}
+		else
+		{
+			printf("%s", line);
+			free(line);
+		}
+	}
+	close(fd1);
+	close(fd2);
+	close(fd3);
+	return (0);
+}
