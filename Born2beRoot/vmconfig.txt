@@ -1,0 +1,6 @@
+VM_NAME="Automated_Debian"
+OSTYPE="Debian_64"
+MEMORY="2048"
+VDI_PATH="/nfs/homes/jschroed/VirtualBox VMs"
+VDI_SIZE="10000"
+ISO_PATHan="debian-12.0.0-amd64-netinst.iso"
