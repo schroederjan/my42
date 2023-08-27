@@ -1,6 +1,9 @@
+/*usr/bin/cc -Wall -Wextra -Werror -g "$0" && exec ./a.out "$@"*/
+
 #include <stdio.h>
 
-int main(int argc, char **argv, char *const *envp) {
+int main(int argc, char **argv, char *const *envp) 
+{
 	int i;
 
 	i = 0;
