@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 17:04:58 by jschroed         ###   ########.fr       */
+/*   Created: 2023/09/03 16:29:31 by jschroed          #+#    #+#             */
+/*   Updated: 2023/09/03 16:35:04 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include <stddef.h>
 
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <sys/types.h>
+int	ft_strcmp(char *s1, char *s2)
+{
+	size_t	i;
 
-char	*get_path(char *cmd, char **env);
-char	*get_env_var(char *name, char **env);
-void	ft_free_tab(char **tab);
-void	exec(char *cmd, char **env);
-void	exit_handler(int exit_number);
-int		open_file(char *file, int io);
-
-#endif
+	i = 0;
+	if (!s1)
+		return (1);
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}

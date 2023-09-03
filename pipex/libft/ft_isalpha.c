@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 17:04:58 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/03 20:58:05 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/03 21:15:48 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <sys/types.h>
-
-char	*get_path(char *cmd, char **env);
-char	*get_env_var(char *name, char **env);
-void	ft_free_tab(char **tab);
-void	exec(char *cmd, char **env);
-void	exit_handler(int exit_number);
-int		open_file(char *file, int io);
-
-#endif
+int	ft_isalpha(int c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}

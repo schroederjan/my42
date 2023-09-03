@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 17:04:58 by jschroed         ###   ########.fr       */
+/*   Created: 2023/05/02 18:38:10 by jschroed          #+#    #+#             */
+/*   Updated: 2023/05/02 18:38:12 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c -= 32);
+	else
+		return (c);
+}
 
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <sys/types.h>
-
-char	*get_path(char *cmd, char **env);
-char	*get_env_var(char *name, char **env);
-void	ft_free_tab(char **tab);
-void	exec(char *cmd, char **env);
-void	exit_handler(int exit_number);
-int		open_file(char *file, int io);
-
-#endif
+/*
+#include <stdio.h>
+int main(void)
+{
+    printf("%c\n", ft_toupper('a'));
+}
+*/
