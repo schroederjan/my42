@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 16:55:47 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:41:24 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	exec(char *cmd, char **env)
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(split_cmd[0], 2);
 		ft_free_tab(split_cmd);
-		exit(0);
+		exit(127);
 	}
 }
 
@@ -58,11 +58,17 @@ int	main(int ac, char **av, char **env)
 	if (ac != 5)
 		exit_handler(1);
 	if (pipe(pipe_fd) == -1)
-		exit(-1);
+		handle_err("pipe");
 	pid = fork();
 	if (pid == -1)
-		exit(-1);
+		handle_err("fork");
 	if (!pid)
 		child(av, pipe_fd, env);
 	parent(av, pipe_fd, env);
+}
+
+void	handle_err(char *str)
+{
+	perror(str);
+	exit(2);
 }

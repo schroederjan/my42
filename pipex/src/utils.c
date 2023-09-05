@@ -6,17 +6,18 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 16:59:01 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:50:08 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exit_handler(int exit_num)
-{
-	if (exit_num == 1)
-		ft_putstr_fd("./pipex infile cmd1 cmd2 outfile\n", 2);
-	exit(0);
+void exit_handler(int exit_num) {
+    if (exit_num == 1) {
+        ft_putstr_fd("./pipex infile cmd1 cmd2 outfile\n", 2);
+        exit(1);
+    }
+    exit(0);
 }
 
 void	ft_free_tab(char **tab)
@@ -37,11 +38,14 @@ int	open_file(char *file, int io)
 	int	ret;
 
 	if (io == 0)
-		ret = open(file, O_RDONLY, 0777);
+		ret = open(file, O_RDONLY, 0644);
 	if (io == 1)
 		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (ret == -1)
-		exit(0);
+	{
+		perror("Error Opening File");
+		exit(1);
+	}
 	return (ret);
 }
 

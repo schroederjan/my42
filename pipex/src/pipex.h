@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/03 17:04:58 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:36:40 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 
+void	handle_err(char *str);
 char	*get_path(char *cmd, char **env);
 char	*get_env_var(char *name, char **env);
 void	ft_free_tab(char **tab);
