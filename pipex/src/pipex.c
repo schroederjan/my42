@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/05 19:41:24 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/05 20:29:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	exec(char *cmd, char **env)
 	path = get_path(split_cmd[0], env);
 	if (execve(path, split_cmd, env) == -1)
 	{
-		ft_putstr_fd("pipex: command not found: ", 2);
+		ft_putstr_fd("pipex: Command not found: ", 2);
 		ft_putendl_fd(split_cmd[0], 2);
 		ft_free_tab(split_cmd);
 		exit(127);
@@ -56,19 +56,13 @@ int	main(int ac, char **av, char **env)
 	pid_t	pid;
 
 	if (ac != 5)
-		exit_handler(1);
+		handle_err("./pipex infile cmd1 cmd2 outfile\n", 1);
 	if (pipe(pipe_fd) == -1)
-		handle_err("pipe");
+		handle_err("pipex: Failed to create pipe", 2);
 	pid = fork();
 	if (pid == -1)
-		handle_err("fork");
+		handle_err("pipex: Failed to create a new process", 2);
 	if (!pid)
 		child(av, pipe_fd, env);
 	parent(av, pipe_fd, env);
-}
-
-void	handle_err(char *str)
-{
-	perror(str);
-	exit(2);
 }

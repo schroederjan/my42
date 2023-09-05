@@ -2,29 +2,28 @@ NAME = pipex
 
 CC = gcc
 
-# CFLAGS = -Werror -Wall -Wextra -fsanitize=address
 CFLAGS = -Werror -Wall -Wextra
 
 RM = rm -rf
 
-# SRCS = 	src/test.c
-
-SRCS = 	src/pipex.c\
-		src/utils.c\
-		libft/libft.a
-
-$(NAME): 
-	make all -C libft
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+SRCS = src/pipex.c src/utils.c
+OBJS = $(SRCS:.c=.o) # Convert .c to .o for object files
+LIBS = libft/libft.a
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	make all -C libft
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	$(RM) *.o # This removes object files, assuming you'd compile to object files in the future.
+	$(RM) $(OBJS)
 	make clean -C libft
 
 fclean: clean
 	$(RM) $(NAME)
-	make clean -C libft
 
 re: fclean all
