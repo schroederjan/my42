@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/05 20:29:19 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 10:54:56 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	exec(char *cmd, char **env)
 		ft_free_tab(split_cmd);
 		exit(127);
 	}
+	free(path);
+	ft_free_tab(split_cmd);
+	handle_err("pipex: Replacing process with cmd failed.", 2);
 }
 
 void	child(char **av, int *pipe_fd, char **env)
@@ -34,6 +37,7 @@ void	child(char **av, int *pipe_fd, char **env)
 
 	fd = open_file(av[1], 0);
 	dup2(fd, 0);
+	close(fd);
 	dup2(pipe_fd[1], 1);
 	close(pipe_fd[0]);
 	exec(av[2], env);
@@ -45,6 +49,7 @@ void	parent(char **av, int *pipe_fd, char **env)
 
 	fd = open_file(av[4], 1);
 	dup2(fd, 1);
+	close(fd);
 	dup2(pipe_fd[0], 0);
 	close(pipe_fd[1]);
 	exec(av[3], env);
@@ -54,6 +59,7 @@ int	main(int ac, char **av, char **env)
 {
 	int		pipe_fd[2];
 	pid_t	pid;
+	int		status;
 
 	if (ac != 5)
 		handle_err("./pipex infile cmd1 cmd2 outfile\n", 1);
@@ -64,5 +70,9 @@ int	main(int ac, char **av, char **env)
 		handle_err("pipex: Failed to create a new process", 2);
 	if (!pid)
 		child(av, pipe_fd, env);
-	parent(av, pipe_fd, env);
+	else
+	{
+		waitpid(pid, &status, 0);
+		parent(av, pipe_fd, env);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/05 20:27:13 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 10:37:30 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*get_path(char *cmd, char **env)
 
 	i = -1;
 	paths = ft_split(get_env_var("PATH", env), ':');
-	while (paths[i++])
+	while (paths[++i])
 	{
 		path_part = ft_strjoin(paths[i], "/");
 		exec = ft_strjoin(path_part, cmd);
