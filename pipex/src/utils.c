@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 16:55:46 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:09:14 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	open_file(char *file, int io)
 	if (io == 0)
 		ret = open(file, O_RDONLY, 0644);
 	if (io == 1)
-		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (ret == -1)
 		handle_err("pipex: Error opening file", 1);
 	return (ret);
