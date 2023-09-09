@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 10:49:03 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 19:44:43 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+
+// TODO:
+// int		count_args(char *cmd);
+// int		set_args(char **args, char *cmd);
+// char	**parse_cmd(char *cmd);
+// void	free_args(char **args);
 
 /**
 * @brief Handle errors and exit the program with a specified code.

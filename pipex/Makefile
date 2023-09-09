@@ -6,6 +6,8 @@ CFLAGS = -Werror -Wall -Wextra
 
 RM = rm -rf
 
+# TODO:
+# SRCS = src/pipex.c src/utils.c src/awk_utils.c
 SRCS = src/pipex.c src/utils.c
 OBJS = $(SRCS:.c=.o) # Convert .c to .o for object files
 LIBS = libft/libft.a
