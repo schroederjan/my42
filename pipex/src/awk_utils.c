@@ -6,82 +6,84 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:12 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 19:40:21 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:20:34 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include <stdbool.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-int	count_args(char *cmd)
+/* char	**call_awk(char *av) */
+/* { */
+/*     char	**cmd; */
+/*     size_t	i; */
+/*     size_t	k; */
+/*  */
+/*     cmd = (char **)malloc(3 * sizeof(char *)); */
+/*     cmd[0] = ft_strdup("awk"); */
+/*     if (av[4] == av[ft_strlen(av) - 1]) */
+/*     { */
+/*         if (av[4] == '\'' && av[5] == '\"') */
+/*         { */
+/*             cmd[1] = ft_strdup("-e"); */
+/*             cmd[2] = ft_strdup("{ print }"); */
+/*             cmd[3] = NULL; */
+/*             return (cmd); */
+/*         } */
+/*         i = 5; */
+/*         k = 0; */
+/*         cmd[1] = (char *)malloc(sizeof(char) * (ft_strlen(av) - 4)); */
+/*         while (av[i] && i < (ft_strlen(av) - 1)) */
+/*             cmd[1][k++] = av[i++]; */
+/*         cmd[1][k] = 0; */
+/*         cmd[2] = NULL; */
+/*         return (cmd); */
+/*     } */
+/*     handle_err("pipex: The provided awk command has a syntax issue.", 2); */
+/*     return (NULL); */
+/* } */
+
+static char	**handle_default_cmd(void)
 {
-	int	count;
-	int	i;
+	char	**cmd;
 
-	i = 0;
-	count = 0;
-	while (cmd[i])
-	{
-		while (cmd[i] && cmd[i] == ' ')
-			i++;
-		if (cmd[i] && cmd[i] != ' ')
-		{
-			count++;
-			while (cmd[i] && cmd[i] != ' ')
-				i++;
-		}
-	}
-	return (count);
+	cmd = (char **)malloc(3 * sizeof(char *));
+	cmd[0] = ft_strdup("awk");
+	cmd[1] = ft_strdup("-e");
+	cmd[2] = ft_strdup("{ print }");
+	cmd[3] = NULL;
+	return (cmd);
 }
 
-int	set_args(char **args, char *cmd)
+static char	**create_cmd_from_av(char *av)
 {
-	int	i;
-	int	arg_index;
+	char	**cmd;
+	size_t	i;
+	size_t	k;
 
-	i = 0;
-	arg_index = 0;
-	while (cmd[i])
-	{
-		while (cmd[i] && cmd[i] == ' ')
-			i++;
-		if (cmd[i] && cmd[i] != ' ')
-		{
-			args[arg_index] = &cmd[i];
-			while (cmd[i] && cmd[i] != ' ')
-				i++;
-			cmd[i++] = '\0';
-			arg_index++;
-		}
-	}
-	return (arg_index);
+	cmd = (char **)malloc(3 * sizeof(char *));
+	cmd[0] = ft_strdup("awk");
+	i = 5;
+	k = 0;
+	cmd[1] = (char *)malloc(sizeof(char) * (ft_strlen(av) - 4));
+	while (av[i] && i < (ft_strlen(av) - 1))
+		cmd[1][k++] = av[i++];
+	cmd[1][k] = 0;
+	cmd[2] = NULL;
+	return (cmd);
 }
 
-char	**parse_cmd(char *cmd)
+char	**call_awk(char *av)
 {
-	char	**args;
-	int		arg_count;
+	char	**cmd;
 
-	arg_count = count_args(cmd);
-	args = (char **)malloc((arg_count + 1) * sizeof(char *));
-	if (!args)
-		return (NULL);
-	args[set_args(args, cmd)] = NULL;
-	return (args);
-}
-
-void	free_args(char **args)
-{
-	int	i;
-
-	i = 0;
-	while (args[i] != NULL)
+	cmd = (char **)malloc(3 * sizeof(char *));
+	cmd[0] = ft_strdup("awk");
+	if (av[4] == av[ft_strlen(av) - 1])
 	{
-		free(args[i]);
-		i++;
+		if (av[4] == '\'' && av[5] == '\"')
+			return (handle_default_cmd());
+		return (create_cmd_from_av(av));
 	}
-	free(args);
+	handle_err("pipex: The provided awk command has a syntax issue.", 2);
+	return (NULL);
 }

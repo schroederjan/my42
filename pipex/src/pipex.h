@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:42 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 19:44:43 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:15:09 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,30 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-// TODO:
-// int		count_args(char *cmd);
-// int		set_args(char **args, char *cmd);
-// char	**parse_cmd(char *cmd);
-// void	free_args(char **args);
+/**
+ * call_awk - Parses the given `awk` command and returns the parsed command as
+ * an array.
+ *
+ * @param av: The command string to be parsed. Expected to be an `awk` command.
+ *
+ * Description:
+ * The function processes the provided `awk` command and breaks it down into an
+ * array of strings. For example, the input string "awk 'some command here'"
+ * would be transformed into an array `["awk", "some command here", NULL]`.
+ *
+ * - If the provided command isn't valid, the function will handle the error and
+ * display a relevant message.
+ * - If the input is simply "awk" without a command (i.e., "awk ''"), the
+ * function defaults to an echo-like behavior by assigning the `-e` option with
+ * the `{ print }` block to `awk`.
+ *
+ * Return:
+ * - A dynamically allocated array of strings representing the parsed `awk`
+ * command.
+ * - If there's a problem or if the input command is invalid, the function
+ * returns `NULL`.
+ */
+char	**call_awk(char *av);
 
 /**
 * @brief Handle errors and exit the program with a specified code.
@@ -122,7 +141,7 @@ void	ft_free_tab(char **tab);
  * 
  * @note On failure, this function exits the program with a status code of 127.
  */
-void	exec(char *cmd, char **env);
+int		exec(char *cmd, char **env);
 
 void	exit_handler(int exit_number);
 
