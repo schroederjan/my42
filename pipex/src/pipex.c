@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 11:50:10 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 17:04:57 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int	main(int ac, char **av, char **env)
 	int		status;
 
 	if (ac != 5)
-		handle_err("./pipex infile cmd1 cmd2 outfile\n", 1);
+	{
+		write(2, "./pipex file1 cmd1 cmd2 file2\n", 31);
+		exit (1);
+	}
 	if (pipe(pipe_fd) == -1)
 		handle_err("pipex: Failed to create pipe", 2);
 	pid = fork();
