@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 20:28:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/09 10:54:56 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/09 11:50:10 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ int	main(int ac, char **av, char **env)
 		handle_err("pipex: Failed to create a new process", 2);
 	if (!pid)
 		child(av, pipe_fd, env);
-	else
-	{
-		waitpid(pid, &status, 0);
-		parent(av, pipe_fd, env);
-	}
+	wait(&status);
+	parent(av, pipe_fd, env);
 }
