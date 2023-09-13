@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:51:02 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/12 21:00:33 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:18:18 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	init_stack(t_list **stack, int argc, char **argv)
 	args = get_args(argc, argv, &i);
 	while (args[i])
 	{
-		/* TODO: can not add int to void * */
 		new_list = ft_lstnew(ft_atoi(args[i]));
 		ft_lstadd_back(stack, new_list);
 		i++;

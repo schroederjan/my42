@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:53:45 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/12 20:59:24 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:39:46 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ void	check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!is_num(args[i]))
-			error_handler("Error");
+			error_handler("Error: Argument not a number.");
 		if (contains(tmp, args, i))
-			error_handler("Error");
+			error_handler("Error: Argument has duplicates.");
 		if (tmp < -2147483648 || tmp > 2147483647)
-			error_handler("Error");
+			error_handler("Error: Argument out of INT range.");
 		i++;
 	}
 	if (argc == 2)
