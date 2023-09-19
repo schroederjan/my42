@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:16:18 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/12 20:22:59 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:10:36 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,32 @@ void	free_tab(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+}
+
+int		is_sorted(t_list **stack)
+{
+	t_list	*head;
+
+	head = *stack;
+	while (head && head->next)
+	{
+		if (head->value > head->next->value)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
+void	free_stack(t_list **stack)
+{
+	t_list	*head;
+	t_list	*temp;
+
+	head = *stack;
+	while (head)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
 }
