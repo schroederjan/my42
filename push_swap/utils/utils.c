@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:16:18 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/19 19:10:36 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:47:01 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,21 @@ void	free_stack(t_list **stack)
 		head = head->next;
 		free(temp);
 	}
+}
+
+int	get_position_from_top(t_list **stack, int index)
+{
+	t_list	*head;
+	int		position_from_top;
+
+	position_from_top = 0;
+	head = *stack;
+	while (head)
+	{
+		if (head->index == index)
+			break ;
+		position_from_top++;
+		head = head->next;
+	}
+	return (position_from_top);
 }

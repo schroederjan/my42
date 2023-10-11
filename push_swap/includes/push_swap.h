@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:46:01 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/19 19:56:34 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:49:10 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	**get_args(int argc, char **argv, int *start_index);
 void	index_stack(t_list **stack);
 int		is_sorted(t_list **stack);
 void	free_stack(t_list **stack);
+int		get_position_from_top(t_list **stack, int index);
 
 // linked_list functions
 t_list	*ft_lstnew(int value);	
@@ -47,5 +48,9 @@ void	simple_sort(t_list **stack_a, t_list **stack_b);
 // operation functions
 int		swap(t_list **stack_a);
 int		sa(t_list **stack_a);
+int		rra(t_list **stack_a);
+int		ra(t_list **stack_a);
+int		pa(t_list **stack_a, t_list **stack_b);
+int		pb(t_list **stack_a, t_list **stack_b);
 
 #endif

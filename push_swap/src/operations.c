@@ -6,12 +6,13 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:42:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/10/09 22:11:05 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:43:38 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+// swaps
 int	swap(t_list **stack)
 {
 	t_list	*head;
@@ -42,6 +43,7 @@ int	sa(t_list **stack_a)
 	return (0);
 }
 
+// rotations
 int	rotate(t_list **stack)
 {
 	t_list	*head;
@@ -73,6 +75,7 @@ int	rb(t_list **stack_b)
 	return (0);
 }
 
+// reverse rotaions
 int	reverse_rotate(t_list **stack)
 {
 	t_list	*head;
@@ -98,9 +101,53 @@ int	reverse_rotate(t_list **stack)
 
 int	 rra(t_list **stack_a)
 {
-	if (reverse_rotate(stack_b) == -1)
+	if (reverse_rotate(stack_a) == -1)
 		return (-1);
-	ft_putendl_fd("rrb");
+	ft_putendl_fd("rra", 1);
+	return (0);
+}
+
+// pushes
+int	push(t_list **stack_to, t_list **stack_from)
+{
+	t_list	*temp;
+	t_list	*head_to;
+	t_list	*head_from;
+
+	if (ft_lstsize(*stack_from) == 0)
+		return (-1);
+	head_to = *stack_to;
+	head_from = *stack_from;
+	temp = head_from;
+	head_from = head_from->next;
+	*stack_from = head_from;
+	if (!head_to)
+	{
+		head_to = temp;
+		head_to->next = NULL;
+		*stack_to = head_to;
+	}
+	else
+	{
+		temp->next = head_to;
+		*stack_to = temp;
+	}
+	return (0);
+}
+
+int	pa(t_list **stack_a, t_list **stack_b)
+{
+	if (push(stack_a, stack_b) == -1)
+		return (-1);
+	ft_putendl_fd("pa", 1);
+	return (0);
+}
+
+int	pb(t_list **stack_a, t_list **stack_b)
+{
+	if (push(stack_b, stack_a) == -1)
+		return (-1);
+	ft_putendl_fd("pb", 1);
 	return (0);
 }
 
