@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:46:01 by jschroed          #+#    #+#             */
-/*   Updated: 2023/10/11 20:49:10 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/10/29 21:42:27 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int		ft_lstsize(t_list *head);
 
 // sort functions
 void	simple_sort(t_list **stack_a, t_list **stack_b);
+void	complex_sort(t_list **stack_a, t_list **stack_b);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 // operation functions
 int		swap(t_list **stack_a);
