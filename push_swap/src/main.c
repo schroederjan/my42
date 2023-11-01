@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:51:02 by jschroed          #+#    #+#             */
-/*   Updated: 2023/10/29 21:49:18 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:25:48 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static	void	sort_stack(t_list **stack_a, t_list **stack_b)
 		simple_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
-		/* complex_sort(stack_a, stack_b); */
 }
 
 int	main(int argc, char **argv)

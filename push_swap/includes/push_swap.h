@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:46:01 by jschroed          #+#    #+#             */
-/*   Updated: 2023/10/29 21:42:27 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/01 09:43:58 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
-// NOTE: not the t_list/s_list in libft
 typedef struct s_list
 {
 	int				value;
@@ -54,5 +53,7 @@ int		rra(t_list **stack_a);
 int		ra(t_list **stack_a);
 int		pa(t_list **stack_a, t_list **stack_b);
 int		pb(t_list **stack_a, t_list **stack_b);
+void	sa_rra(t_list **stack_a);
+void	sa_ra(t_list **stack_a);
 
 #endif

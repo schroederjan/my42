@@ -29,36 +29,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	return (i);
 }
-
-/* #include <stdio.h> */
-/* int	main(void) */
-/* { */
-/*  */
-/*     char *src = "0123456789"; */
-/*     char dest[10];  // use a large enough buffer */
-/*     unsigned int size; */
-/*     unsigned int result; */
-/*  */
-/*     size = 1; */
-/*     printf( */
-/*         "BEFORE\n\tsrc: %s\n\tdest: %s\n", */
-/*         src, */
-/*         dest */
-/*     ); */
-/*     while (size <= 10) */
-/*     { */
-/*         [> need to be reset before each call if not looped through <] */
-/*         ft_strlcpy(dest, "", 1); */
-/*         result = ft_strlcpy(dest, src, size); */
-/*         printf( */
-/*             "AFTER\n\tsrc: %s\n\tdest: %s\n\tsize: %d\n\tresult: %d\n", */
-/*             src, */
-/*             dest, */
-/*             size, */
-/*             result */
-/*         ); */
-/*         size++; */
-/*     } */
-/*  */
-/*     return (0); */
-/* } */
