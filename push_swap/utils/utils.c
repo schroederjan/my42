@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:16:18 by jschroed          #+#    #+#             */
-/*   Updated: 2023/10/11 20:47:01 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:05:32 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_tab(char **str)
 		free(str[i--]);
 }
 
-int		is_sorted(t_list **stack)
+int	is_sorted(t_list **stack)
 {
 	t_list	*head;
 
@@ -43,17 +43,24 @@ int		is_sorted(t_list **stack)
 	return (1);
 }
 
-void	free_stack(t_list **stack)
+// use triple pointer to save lines in main
+// otherwise need to free pointer to stack itself
+void	free_stack(t_list ***stack)
 {
-	t_list	*head;
-	t_list	*temp;
+	t_list	*current;
+	t_list	*next;
 
-	head = *stack;
-	while (head)
+	if (stack && *stack)
 	{
-		temp = head;
-		head = head->next;
-		free(temp);
+		current = **stack;
+		while (current != NULL)
+		{
+			next = current->next;
+			free(current);
+			current = next;
+		}
+		free(*stack);
+		*stack = NULL;
 	}
 }
 

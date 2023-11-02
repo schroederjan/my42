@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:51:02 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/01 09:25:48 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:01:39 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (-1);
 	check_args(argc, argv);
-	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_a = (t_list **)malloc(sizeof(t_list *));
 	if (!stack_a)
 		return (1);
-	stack_b = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list *));
 	if (!stack_b)
 		return (1);
 	*stack_a = NULL;
@@ -58,12 +58,12 @@ int	main(int argc, char **argv)
 	init_stack(stack_a, argc, argv);
 	if (is_sorted(stack_a))
 	{
-		free_stack(stack_a);
-		free_stack(stack_b);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
 		return (0);
 	}
 	sort_stack(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

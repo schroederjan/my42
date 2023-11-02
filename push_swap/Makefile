@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 19:45:15 by jschroed          #+#    #+#              #
-#    Updated: 2023/09/12 19:45:17 by jschroed         ###   ########.fr        #
+#    Updated: 2023/11/02 10:32:53 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = push_swap
 
 CC = cc
 
+# CFLAGS = -Werror -Wall -Wextra -ggdb3
 CFLAGS = -Werror -Wall -Wextra
 
 RM = rm -rf

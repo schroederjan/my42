@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 20:08:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/19 19:56:24 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 09:48:35 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ void	ft_lstadd_back(t_list **stack, t_list *new)
 	}
 }
 
-
-int		ft_lstsize(t_list *head)
+int	ft_lstsize(t_list *head)
 {
 	size_t	i;
 	t_list	*temp;

@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:46:01 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/01 09:43:58 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 09:52:20 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_args(int argc, char **argv);
 char	**get_args(int argc, char **argv, int *start_index);
 void	index_stack(t_list **stack);
 int		is_sorted(t_list **stack);
-void	free_stack(t_list **stack);
+void	free_stack(t_list ***stack);
 int		get_position_from_top(t_list **stack, int index);
 
 // linked_list functions

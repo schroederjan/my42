@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:55:48 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/19 18:40:12 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 09:48:08 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static t_list	*get_next_min(t_list **stack)
 	}
 	return (min);
 }
-
 
 void	index_stack(t_list **stack)
 {
