@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:42:26 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/01 09:43:22 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/02 10:34:16 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,12 @@ int	sa(t_list **stack_a)
 // helpers for simple_sort
 void	sa_rra(t_list **stack_a)
 {
-		sa(stack_a);
-		rra(stack_a);
+	sa(stack_a);
+	rra(stack_a);
 }
 
 void	sa_ra(t_list **stack_a)
 {
-		sa(stack_a);
-		ra(stack_a);
+	sa(stack_a);
+	ra(stack_a);
 }
-
