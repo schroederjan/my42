@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:15:25 by jschroed          #+#    #+#             */
-/*   Updated: 2023/07/12 18:45:24 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/09 17:59:11 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
-/* [> [> TEMP <] <] */
-/* int	main(void) */
-/* { */
-/*     char	c; */
-/*     c = 'c'; */
-/*     ft_printf("%c", c); */
-/* } */
