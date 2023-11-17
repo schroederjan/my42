@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 21:41:34 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/16 10:21:08 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:03:13 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int	get_max_bits(t_list **stack)
 
 /* EXAMPLE: */
 
+// 1.
+
 /* Sorted: 1, 2, 3, 4, 5, 6 */
 /* Original: 5, 1, 6, 3, 2, 4 */
 /* Indices: 4, 0, 5, 2, 1, 3 */
@@ -53,36 +55,36 @@ static int	get_max_bits(t_list **stack)
 /* 1 (001): LSB is 1 → Rotate. (ra)*/
 /* 3 (011): LSB is 1 → Rotate. (ra)*/
 
-// NOTE: issues from here
+/* stack_a: [5, 1, 3] */
+/* stack_b: [2, 0, 4] (from top to bottom) */
+/* stack_a: [4, 0, 2, 5, 1, 3] */
 
-/* stack_a: [1, 3, 5] */
-/* stack_b: [2, 0, 4] (top to bottom) */
+// 2.
 
-/* stack_a: [4, 0, 2, 1, 3, 5] */
+/* 4 (100): Second bit is 0 → Push to stack_b (pb). */
+/* 0 (000): Second bit is 0 → Push to stack_b (pb). */
+/* 2 (010): Second bit is 1 → Keep in stack_a (ra). */
+/* 5 (101): Second bit is 0 → Push to stack_b (pb). */
+/* 1 (001): Second bit is 0 → Push to stack_b (pb). */
+/* 3 (011): Second bit is 1 → Keep in stack_a (ra). */
 
-/* 4 (100): Second bit is 0 → Push to stack_b. (pb)*/
-/* 0 (000): Second bit is 0 → Push to stack_b. (pb)*/
-/* 2 (010): Second bit is 1 → Rotate. (ra)*/
-/* 1 (001): Second bit is 0 → Push to stack_b. (pb)*/
-/* 3 (011): Second bit is 1 → Rotate. (ra)*/
-/* 5 (101): Second bit is 0 → Push to stack_b. (pb)*/
+/* stack_a: [2, 3] */
+/* stack_b: [1, 5, 0, 4] */
+/* stack_a: [4, 0, 5, 1, 2, 3] */
 
-/* stack_a: [3, 2] */
-/* stack_b: [5, 1, 0, 4] */
+// 3.
 
-/* stack_a: [4, 0, 1, 5, 3, 2] */
+/* 4 (100): Third bit is 1 → Keep in stack_a (ra). */
+/* 0 (000): Third bit is 0 → Push to stack_b (pb). */
+/* 5 (101): Third bit is 1 → Keep in stack_a (ra). */
+/* 1 (001): Third bit is 0 → Push to stack_b (pb). */
+/* 3 (011): Third bit is 0 → Push to stack_b (pb). */
+/* 2 (010): Third bit is 0 → Push to stack_b (pb). */
 
-/* 4 (100): Third bit is 1 → Rotate. (ra)*/
-/* 0 (000): Third bit is 0 → Push to stack_b. (pb)*/
-/* 1 (001): Third bit is 0 → Push to stack_b. (pb)*/
-/* 5 (101): Third bit is 1 → Rotate. (ra)*/
-/* 3 (011): Third bit is 0 → Push to stack_b. (pb)*/
-/* 2 (010): Third bit is 0 → Push to stack_b. (pb)*/
+/* stack_a: [4, 5] */
+/* stack_b: [3, 2, 1, 0] */
 
-/* stack_a: [5, 4] */
-/* stack_b: [2, 3, 1, 0] */
-
-/* stack_a: [0, 1, 3, 2, 5, 4] */
+/* stack_a: [0, 1, 2, 3, 4, 5] */
 
 void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
