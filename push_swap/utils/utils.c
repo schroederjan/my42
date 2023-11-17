@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:16:18 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/02 10:05:32 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:13:35 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_stack(t_list ***stack)
 	}
 }
 
-int	get_position_from_top(t_list **stack, int index)
+int	smallest_index_position(t_list **stack, int index)
 {
 	t_list	*head;
 	int		position_from_top;
