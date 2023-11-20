@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:28:31 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/01 09:45:28 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:18:53 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ static int	get_min(t_list **stack, int val)
 	return (min);
 }
 
+// Examples:
+//
 // ra, sa, rra
 // init: 1,3,2
-//
 // result: 3,2,1
 // result: 2,3,1
 // result: 1,2,3
@@ -75,58 +76,26 @@ static void	sort_3(t_list **stack_a)
 		rra(stack_a);
 }
 
-// TODO: keep this first
-/* static void	sort_3(t_list **stack_a) */
-/* { */
-/*     t_list	*head; */
-/*     int		min; */
-/*     int		next_min; */
-/*  */
-/*     head = *stack_a; */
-/*     min = get_min(stack_a, -1); */
-/*     next_min = get_min(stack_a, min); */
-/*     if (is_sorted(stack_a)) */
-/*         return ; */
-/*     if (head->index == min && head->next->index != next_min) */
-/*     { */
-/*         ra(stack_a); */
-/*         sa(stack_a); */
-/*         rra(stack_a); */
-/*     } */
-/*     else if (head->index == next_min) */
-/*     { */
-/*         if (head->next->index == min) */
-/*             sa(stack_a); */
-/*         else */
-/*             rra(stack_a); */
-/*     } */
-/*     else */
-/*     { */
-/*         if (head->next->index == min) */
-/*             ra(stack_a); */
-/*         else */
-/*         { */
-/*             sa(stack_a); */
-/*             rra(stack_a); */
-/*         } */
-/*     } */
-/* } */
-
+// pos is 0,1,2,3...n
+// bring smallest index to top
+// if on top then pb
+// then sort stack_a
+// then pb
 static void	sort_4(t_list **stack_a, t_list **stack_b)
 {
-	int	position_from_top;
+	int	smallest_index_at;
 
 	if (is_sorted(stack_a))
 		return ;
-	position_from_top = get_position_from_top(stack_a, get_min(stack_a, -1));
-	if (position_from_top == 1)
+	smallest_index_at = smallest_index_position(stack_a, get_min(stack_a, -1));
+	if (smallest_index_at == 1)
 		ra(stack_a);
-	else if (position_from_top == 2)
+	else if (smallest_index_at == 2)
 	{
 		ra(stack_a);
 		ra(stack_a);
 	}
-	else if (position_from_top == 3)
+	else if (smallest_index_at == 3)
 		rra(stack_a);
 	if (is_sorted(stack_a))
 		return ;
@@ -135,24 +104,25 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
+// logic same as sort_4
 static void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-	int	position_from_top;
+	int	smallest_index_at;
 
-	position_from_top = get_position_from_top(stack_a, get_min(stack_a, -1));
-	if (position_from_top == 1)
+	smallest_index_at = smallest_index_position(stack_a, get_min(stack_a, -1));
+	if (smallest_index_at == 1)
 		ra(stack_a);
-	else if (position_from_top == 2)
+	else if (smallest_index_at == 2)
 	{
 		ra(stack_a);
 		ra(stack_a);
 	}
-	else if (position_from_top == 3)
+	else if (smallest_index_at == 3)
 	{
 		rra(stack_a);
 		rra(stack_a);
 	}
-	else if (position_from_top == 4)
+	else if (smallest_index_at == 4)
 		rra(stack_a);
 	if (is_sorted(stack_a))
 		return ;
