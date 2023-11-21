@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:53:45 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/07 18:47:39 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:40:03 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,13 @@ char	**get_args(int argc, char **argv, int *start_index)
 {
 	char	**args;
 
+	*start_index = 0;
 	if (argc == 2)
-	{
 		args = ft_split(argv[1], ' ');
-		*start_index = 0;
-	}
 	else
 	{
-		args = argv;
 		*start_index = 1;
+		args = argv;
 	}
 	return (args);
 }
