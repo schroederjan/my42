@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:28:31 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/17 09:18:53 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:33:09 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 
-	(void )stack_b;
 	if (is_sorted(stack_a) || ft_lstsize(*stack_a) == 0
 		|| ft_lstsize(*stack_a) == 1)
 		return ;
