@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:16:18 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/17 09:13:35 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:38:24 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_tab(char **str)
 	int	i;
 
 	i = 0;
-	while (*str)
+	while (str[i])
 		i++;
 	while (i >= 0)
 		free(str[i--]);
