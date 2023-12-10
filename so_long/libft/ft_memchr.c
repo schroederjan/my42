@@ -28,26 +28,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/* #include <stdio.h> */
-/* #include <string.h> */
-/*  */
-/* int	main(void) */
-/* { */
-/*     const char	*s = "he llo"; */
-/*     int		c = 32; // search for the ' '  */
-/*     size_t	n = strlen(s); */
-/*     char	*result = ft_memchr(s, c, n); */
-/*     char	*result_org = memchr(s, c, n); */
-/*  */
-/*     if (result) // if it is found return the pointer at current pos */
-/*     { */
-/*         printf("%s\n", result); */
-/*         printf("%s\n", result_org); */
-/*     } */
-/*     else // if it is not fount return NULL */
-/*     { */
-/*         printf("%p\n", result); */
-/*         printf("%p\n", result_org); */
-/*     } */
-/* } */

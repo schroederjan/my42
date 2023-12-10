@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:38:27 by jschroed          #+#    #+#             */
-/*   Updated: 2023/09/13 20:00:38 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:31:24 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <limits.h>
+# include <stdarg.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 /* libc */
 int		ft_isdigit(int c);
@@ -57,5 +63,29 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// ------ PRINTF ------ //
+int		ft_printf(const char *format, ...);
+int		ft_parser(const char *format, va_list args);
+
+// ------ GETNEXTLINE ------ //
+char	*get_next_line(int fd);
+char	*ft_get_line(char *stash);
+char	*ft_read_to_stash(int fd, char *stash);
+char	*ft_update_stash(char *stash);
+
+// ------ SPECIFIERS ------ //
+// c || %
+int		ft_printchar(int c);
+// s
+int		ft_printstr(char *str);
+// d || i
+int		ft_printint(int n);
+// p
+int		ft_printptr(uintptr_t ptr);
+// u
+int		ft_printunsigned(unsigned int num);
+// x || X
+int		ft_printhex(unsigned int num, const char format);
 
 #endif
