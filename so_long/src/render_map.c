@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 12:02:20 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/10 14:00:45 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:39:44 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,22 @@ void render_map_sprite(t_game *game, int y, int x)
 	else if (param == MAP_EXIT)
 	{
 		if (game->map.treasures == 0)
-			render_sprite(game, game->exit_closed, y, x);
-		else 
 			render_sprite(game, game->exit_opened, y, x);
+		else 
+			render_sprite(game, game->exit_closed, y, x);
 	}
 	else if (param == PLAYER)
-		render_player(game, x, y);
+		render_player(game, y, x);
 }
 
 void render_sprite(t_game *game, t_image sprite, int line, int column)
 {
 	mlx_put_image_to_window(\
-			game->mlx_ptr,\
-			game->win_ptr,\
-			sprite.xpm_ptr,\
-			column * sprite.x,\
-			line * sprite.y\
+			game->mlx_ptr, \
+			game->win_ptr, \
+			sprite.xpm_ptr, \
+			column * sprite.x, \
+			line * sprite.y \
 			);
 }
 

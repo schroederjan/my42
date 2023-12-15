@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:38:03 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/10 14:53:04 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:54:13 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t	length;
+	size_t	n;
 
-	length = 0;
-	while (str[length])
-		length++;
-	return (length);
+	n = 0;
+	while (*str++)
+		++n;
+	return (n);
 }

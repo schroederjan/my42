@@ -44,8 +44,8 @@ SRCS 	 = ft_isalnum.c \
 		   ft_printptr.c \
 		   ft_printstr.c \
 		   ft_printunsinged.c \
-		   get_next_line.c \
-		   get_next_line_utils.c
+		   get_next_line.c
+		   # get_next_line_utils.c
 
 
 # BSRCS = $(wildcard $(SRC_DIR)/*.c)

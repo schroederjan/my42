@@ -97,22 +97,3 @@ char	**ft_split(char const *s, char c)
 	tab[i] = 0;
 	return (tab);
 }
-
-/* // temp only */
-/* #include <stdio.h> */
-/* int	main(void) */
-/* { */
-/*     char const *s = "aa bb cc"; */
-/*     char		c = ' '; */
-/*     char		**split; */
-/*     int			i = 0; */
-/*  */
-/*     split = ft_split(s, c); */
-/*     while (split[i]) */
-/*     { */
-/*         printf("%s\n", split[i]); */
-/*         free(split[i]);  // Free each string */
-/*         i++; */
-/*     } */
-/*     return (0); */
-/* } */

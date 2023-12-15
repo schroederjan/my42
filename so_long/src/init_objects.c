@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   init_objects.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:29:54 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:26:36 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:29:20 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	init_map(t_game *game, char *argv)
+void	init_objects(t_game *game)
 {
-	char	*map_temp;
-	char	*line_temp;
-	int		map_fd;
-	
-	map_fd = open(argv, O_RDONLY);
-	if (map_fd == -1)
-		error("Map file could not be opened or found.", game);
-	map_temp = ft_strdup("");
-	game->map.rows = 0;
-	while (true)
+	int x;
+	int y;
+
+	y = 0;
+	while (y < game->map.rows)
 	{
-		line_temp = get_next_line(map_fd);
-		if (line_temp == NULL)
-			break ;
-		map_temp = ft_strappend(&map_temp, line_temp);
-		free(line_temp);
-		game->map.rows++;
+		x = 0;
+		while (x < game->map.columns)
+		{
+			if (game->map.full[y][x] == PLAYER)
+			{
+				game->map.player.x = x;
+				game->map.player.y = y;
+			}
+			else if (game->map.full[y][x] == TREASURE)
+				game->map.treasures++;
+			else if (game->map.full[y][x] == MAP_EXIT)
+				game->map.exit++;
+			x++;
+		}
+		y++;
 	}
-	close(map_fd);
-	check_for_empty_line_in_map(map_temp, game);
-	game->map.full = ft_split(map_temp, '\n');
-	game->map_alloc = true;
-	free(map_temp);
 }

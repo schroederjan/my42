@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/10 14:32:38 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:55:00 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "../libft/libft.h"
-// # include <stdbool.h> //TODO: needed?
 
 // Variables
 // =========
@@ -73,7 +72,7 @@ typedef struct s_position
 {
 	int	x;
 	int	y;
-}	t_positon;
+}	t_position;
 
 typedef struct s_image
 {
@@ -90,7 +89,7 @@ typedef struct s_map
 	int			treasures;
 	int			exit;
 	int			players;
-	t_positon	player;
+	t_position	player;
 }	t_map;
 
 typedef struct s_game
@@ -117,6 +116,8 @@ typedef struct s_game
 
 // checks
 void	check_input(int argc, char **argv, t_game *game);
+void	check_for_empty_line_in_map(char *map, t_game *game);
+void	debug_print(t_game *game, int keysym);
 
 // utils
 int		error(char *message, t_game *game);
@@ -126,6 +127,7 @@ void	print_movements(t_game *game);
 
 // inits
 void	init_map(t_game *game, char *argv);
+void	init_objects(t_game *game);
 void	init_vars(t_game *game);
 void	init_mlx(t_game *game);
 void	init_sprites(t_game *game);
@@ -136,5 +138,11 @@ int render_map(t_game *game);
 void render_map_sprite(t_game *game, int y, int x);
 void render_sprite(t_game *game, t_image sprite, int y, int x);
 void render_player(t_game *game, int y, int x);
+
+// reactions
+int handle_input(int keysym, t_game *game);
+void move_player(t_game *game, int new_y, int new_x, int player_sprite);
+int close_game(t_game *game);
+int victory_game(t_game *game);
 
 #endif

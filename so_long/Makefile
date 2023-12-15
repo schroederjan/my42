@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/10 14:46:17 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/15 19:30:14 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,11 @@ SRCS 		= $(addprefix ./src/, \
 				cleanup.c \
 				utils.c \
 				init_map.c \
+				init_objects.c \
 				init_game.c \
 				render_map.c \
+				handle_input.c \
+				close_game.c \
 				)
 
 # Commands

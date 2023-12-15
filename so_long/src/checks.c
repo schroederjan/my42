@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 08:33:55 by jschroed          #+#    #+#             */
-/*   Updated: 2023/11/30 09:21:14 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:47:16 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,31 @@ int	error(char *message, t_game *game)
 	exit (EXIT_FAILURE);
 }
 
+void debug_print(t_game *game, int keysym)
+{
+	ft_printf("Key pressed: %d\n", keysym); // Debug print
+	ft_printf("Player position: x=%d, y=%d\n", 
+	   game->map.player.x, game->map.player.y);
+	ft_printf("Treasures left: %d\n", game->map.treasures);
+}
+
+void check_for_empty_line_in_map(char *map, t_game *game)
+{
+    int i;
+
+    i = 0;
+    if (map[0] == '\n')
+    {
+        free(map);
+        error("Invalid map. (Empty line at beginning)", game);
+    }
+    while (map[i + 1])
+    {
+        if (map[i] == '\n' && map[i + 1] == '\n')
+        {
+            free(map);
+            error("Invalid map. (Empty line in the middle)", game);
+        }
+        i++;
+    }
+}
