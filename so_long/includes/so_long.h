@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:55:00 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:02:27 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "../libft/libft.h"
+
+// DEBUG Mode
+// ==========
+
+// true or false for debug prints on/off
+// # define DEBUG				false
+# define DEBUG				true
 
 // Variables
 // =========

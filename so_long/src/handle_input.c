@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 08:21:16 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:54:45 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:01:30 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 int handle_input(int keysym, t_game *game)
 {
-	#ifdef DEBUG
-	debug_print(game, keysym);
-	#endif
-
-	/* if (DEBUG == true) */
-	/*     debug_print(game, keysym); */
-
+	if (DEBUG == true)
+		debug_print(game, keysym);
 	if (keysym == KEY_W)
 		move_player(game, game->map.player.y - 1, game->map.player.x, BACK);
 	if (keysym == KEY_S)
