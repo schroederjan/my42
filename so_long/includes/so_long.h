@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 20:02:27 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:55:44 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 // ==========
 
 // true or false for debug prints on/off
-// # define DEBUG				false
-# define DEBUG				true
+# define DEBUG				false
+// # define DEBUG				true
 
 // Variables
 // =========
@@ -125,11 +125,15 @@ typedef struct s_game
 void	check_input(int argc, char **argv, t_game *game);
 void	check_for_empty_line_in_map(char *map, t_game *game);
 void	debug_print(t_game *game, int keysym);
+void	check_map_elements(t_game *game);
+void	check_map_elements_quantity(t_game *game);
+void	check_rows(t_game *game);
+void	check_columns(t_game *game);
+void	check_map(t_game *game);
 
 // utils
 int		error(char *message, t_game *game);
 char	*ft_strappend(char **s1, const char *s2);
-void	free_map(t_game *game);
 void	print_movements(t_game *game);
 
 // inits
@@ -151,5 +155,10 @@ int handle_input(int keysym, t_game *game);
 void move_player(t_game *game, int new_y, int new_x, int player_sprite);
 int close_game(t_game *game);
 int victory_game(t_game *game);
+
+// cleanup
+void	free_map(t_game *game);
+void	destroy_images(t_game *game);
+void	cleanup_game(t_game *game);
 
 #endif

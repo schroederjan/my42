@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:29:54 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:29:20 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/17 18:53:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_objects(t_game *game)
 		{
 			if (game->map.full[y][x] == PLAYER)
 			{
+				game->map.players++;
 				game->map.player.x = x;
 				game->map.player.y = y;
 			}
