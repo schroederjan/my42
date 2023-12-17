@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/17 18:38:59 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/17 19:07:59 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ REMOVE 		= rm -f
 
 SRCS 		= $(addprefix ./src/, \
 			  	so_long.c \
-				checks.c \
 				utils.c \
 				init_map.c \
 				check_map.c \
+				check_various.c \
 				init_objects.c \
 				init_game.c \
 				render_map.c \

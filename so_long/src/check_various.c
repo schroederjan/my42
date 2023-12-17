@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 08:33:55 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 20:04:52 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:06:27 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,7 @@ void	check_input(int argc, char **argv, t_game *game)
 		error("No map file provided.", game);
 	argv_len = ft_strlen(argv[1]);
 	if (!ft_strnstr(&argv[1][argv_len - 4], ".ber", 4))
-		error("Invalid map file extention. (!= '.ber')", game);
-}
-
-int	error(char *message, t_game *game)
-{
-	if (game->map_alloc == true)
-		free_map(game);
-	free(game);
-	ft_printf("Error: %s\n", message);
-	exit (EXIT_FAILURE);
-}
-
-void debug_print(t_game *game, int keysym)
-{
-	ft_printf("Key pressed: %d\n", keysym); // Debug print
-	ft_printf("Player position: x=%d, y=%d\n", 
-			game->map.player.x, game->map.player.y);
-	ft_printf("Treasures left: %d\n", game->map.treasures);
+		error("Invalid map. File extention != '.ber'.", game);
 }
 
 void check_for_empty_line_in_map(char *map, t_game *game)
@@ -51,14 +34,14 @@ void check_for_empty_line_in_map(char *map, t_game *game)
 	if (map[0] == '\n')
 	{
 		free(map);
-		error("Invalid map. (Empty line at beginning)", game);
+		error("Invalid map. Empty line at beginning", game);
 	}
 	while (map[i + 1])
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
 			free(map);
-			error("Invalid map. (Empty line in the middle)", game);
+			error("Invalid map. Empty line in the middle", game);
 		}
 		i++;
 	}
