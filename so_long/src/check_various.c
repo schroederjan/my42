@@ -26,9 +26,9 @@ void	check_input(int argc, char **argv, t_game *game)
 		error("Invalid map. File extention != '.ber'.", game);
 }
 
-void check_for_empty_line_in_map(char *map, t_game *game)
+void	check_for_empty_line_in_map(char *map, t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (map[0] == '\n')

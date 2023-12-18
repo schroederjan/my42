@@ -6,16 +6,15 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 07:46:44 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/17 19:02:42 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:16:48 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = malloc(sizeof(t_game));
 	if (!game)

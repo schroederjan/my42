@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/17 19:07:59 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/18 20:34:11 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ NAME		= so_long
 LIBFT 		= ./libft/libft.a
 
 CC 			= cc
-# CFLAGS  	= -Wall -Werror -Wextra
-CFLAGS  	= -Wall -Werror -Wextra -g
+CFLAGS  	= -Wall -Werror -Wextra
+# CFLAGS  	= -Wall -Werror -Wextra -g
 MLXFLAGS 	= -lmlx -lXext -lX11
 
 VALGRIND 	= @valgrind --leak-check=full --show-leak-kinds=all \
@@ -41,32 +41,38 @@ SRCS 		= $(addprefix ./src/, \
 				cleanup_game.c \
 				)
 
+OBJECTS = $(SRCS:.c=.o)
+
+# Compile each .c into an .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 # Commands
 # ========
+all: $(LIBFT) $(NAME)
 
-all: 		${LIBFT} ${NAME}
+$(NAME): $(OBJECTS)
+	$(CC) $(OBJECTS) $(LIBFT) $(MLXFLAGS) -o $(NAME)
+	@echo "$(NAME): $(NAME) was compiled."
 
-${NAME}: 	
-			${CC} ${SRCS} ${LIBFT} ${CFLAGS} ${MLXFLAGS} -o ${NAME}
-			@echo "$(NAME): $(NAME) was compiled."
-			@echo
+$(LIBFT):
+	@echo
+	make all -C libft
 
-${LIBFT}: 	
-			@echo
-			make all -C libft
+clean:
+	make clean -C libft
+	$(REMOVE) $(OBJECTS)
 
-clean: 
-			make clean -C libft
-			@echo
+fclean: clean
+	$(REMOVE) $(NAME)
+	@echo "${NAME}: ${NAME} was deleted."
 
-fclean:
-			${REMOVE} ${NAME}
-			@echo "${NAME}: ${NAME} and ${NAME_BONUS} were deleted."
-			@echo
+re: fclean all
 
-re: 		fclean all
+val: $(NAME)
+	$(VALGRIND) ./${NAME} resources/maps/map_small.ber
 
-run: 		${NAME}
-			${VALGRIND} ./{NAME} resources/maps/map_1.ber
-			
-.PHONY: 	all clean fclean re valgrind run
+run: $(NAME)
+	./${NAME} resources/maps/map_small.ber
+
+.PHONY: all clean fclean re run val

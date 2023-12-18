@@ -6,16 +6,14 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 08:21:16 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 20:01:30 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:22:00 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int handle_input(int keysym, t_game *game)
+int	handle_input(int keysym, t_game *game)
 {
-	if (DEBUG == true)
-		debug_print(game, keysym);
 	if (keysym == KEY_W)
 		move_player(game, game->map.player.y - 1, game->map.player.x, BACK);
 	if (keysym == KEY_S)
@@ -29,17 +27,17 @@ int handle_input(int keysym, t_game *game)
 	return (0);
 }
 
-void move_player(t_game *game, int new_y, int new_x, int player_sprite)
+void	move_player(t_game *game, int new_y, int new_x, int player_sprite)
 {
-	int last_x;
-	int last_y;
+	int	last_x;
+	int	last_y;
 
 	game->player_sprite = player_sprite;
 	last_x = game->map.player.x;
 	last_y = game->map.player.y;
 	if (game->map.full[new_y][new_x] == MAP_EXIT && game->map.treasures == 0)
 		victory_game(game);
-	else if ((game->map.full[new_y][new_x] == FLOOR) 
+	else if ((game->map.full[new_y][new_x] == FLOOR)
 			|| (game->map.full[new_y][new_x] == TREASURE))
 	{
 		game->map.full[last_y][last_x] = FLOOR;

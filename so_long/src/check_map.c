@@ -6,13 +6,13 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:34:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/17 19:06:50 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:32:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void check_map(t_game *game)
+void	check_map(t_game *game)
 {
 	check_columns(game);
 	check_rows(game);
@@ -20,10 +20,10 @@ void check_map(t_game *game)
 	check_map_elements_quantity(game);
 }
 
-void check_columns(t_game *game)
+void	check_columns(t_game *game)
 {
-	int i;
-	int last_column;
+	int	i;
+	int	last_column;
 
 	i = 0;
 	last_column = game->map.columns;
@@ -37,10 +37,10 @@ void check_columns(t_game *game)
 	}
 }
 
-void check_rows(t_game *game)
+void	check_rows(t_game *game)
 {
-	int i;
-	int last_row;
+	int	i;
+	int	last_row;
 
 	i = 0;
 	last_row = game->map.rows - 1;
@@ -48,17 +48,16 @@ void check_rows(t_game *game)
 	{
 		if (game->map.full[0][i] != WALL)
 			error("Invalid map. First row missing wall.", game);
-
 		else if (game->map.full[last_row][i] != WALL)
 			error("Invalid map. Last row missing wall.", game);
 		i++;
 	}
 }
 
-void check_map_elements(t_game *game)
+void	check_map_elements(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < game->map.rows)
@@ -74,7 +73,7 @@ void check_map_elements(t_game *game)
 	}
 }
 
-void check_map_elements_quantity(t_game *game)
+void	check_map_elements_quantity(t_game *game)
 {
 	if (game->map.treasures == 0)
 		error("Invalid map. No treasure 'C' found.", game);

@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 08:30:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/17 19:06:17 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:18:16 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ char	*ft_strappend(char **s1, const char *s2)
 	return (str);
 }
 
-void print_movements(t_game *game)
+void	print_movements(t_game *game)
 {
-	char *movements;
-	char *text;
+	char	*movements;
+	char	*text;
 
 	movements = ft_itoa(game->movements);
 	text = ft_strjoin("Movements: ", movements);
@@ -52,10 +52,10 @@ int	error(char *message, t_game *game)
 	exit (EXIT_FAILURE);
 }
 
-void debug_print(t_game *game, int keysym)
+void	debug_print(t_game *game, int keysym)
 {
-	ft_printf("Key pressed: %d\n", keysym); // Debug print
-	ft_printf("Player position: x=%d, y=%d\n", 
+	ft_printf("Key pressed: %d\n", keysym);
+	ft_printf("Player position: x=%d, y=%d\n", \
 			game->map.player.x, game->map.player.y);
 	ft_printf("Treasures left: %d\n", game->map.treasures);
 }

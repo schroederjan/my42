@@ -6,16 +6,16 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 12:02:20 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:39:44 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:15:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int render_map(t_game *game)
+int	render_map(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < game->map.rows)
@@ -32,9 +32,9 @@ int render_map(t_game *game)
 	return (0);
 }
 
-void render_map_sprite(t_game *game, int y, int x)
+void	render_map_sprite(t_game *game, int y, int x)
 {
-	char param;
+	char	param;
 
 	param = game->map.full[y][x];
 	if (param == WALL)
@@ -47,14 +47,14 @@ void render_map_sprite(t_game *game, int y, int x)
 	{
 		if (game->map.treasures == 0)
 			render_sprite(game, game->exit_opened, y, x);
-		else 
+		else
 			render_sprite(game, game->exit_closed, y, x);
 	}
 	else if (param == PLAYER)
 		render_player(game, y, x);
 }
 
-void render_sprite(t_game *game, t_image sprite, int line, int column)
+void	render_sprite(t_game *game, t_image sprite, int line, int column)
 {
 	mlx_put_image_to_window(\
 			game->mlx_ptr, \
@@ -65,7 +65,7 @@ void render_sprite(t_game *game, t_image sprite, int line, int column)
 			);
 }
 
-void render_player(t_game *game, int y, int x)
+void	render_player(t_game *game, int y, int x)
 {
 	if (game->player_sprite == FRONT)
 		render_sprite(game, game->player_front, y, x);

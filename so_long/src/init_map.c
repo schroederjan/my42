@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 09:29:54 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/15 19:26:36 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:14:03 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_map(t_game *game, char *argv)
 	char	*map_temp;
 	char	*line_temp;
 	int		map_fd;
-	
+
 	map_fd = open(argv, O_RDONLY);
 	if (map_fd == -1)
 		error("Map file could not be opened or found.", game);

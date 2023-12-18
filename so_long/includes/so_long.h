@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/17 18:55:44 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:36:55 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "../libft/libft.h"
-
-// DEBUG Mode
-// ==========
-
-// true or false for debug prints on/off
-# define DEBUG				false
-// # define DEBUG				true
+# include <stdlib.h>
 
 // Variables
 // =========
@@ -142,19 +136,19 @@ void	init_objects(t_game *game);
 void	init_vars(t_game *game);
 void	init_mlx(t_game *game);
 void	init_sprites(t_game *game);
-t_image load_sprite(void *mlx, char *path, t_game *game);
+t_image	load_sprite(void *mlx, char *path, t_game *game);
 
 // render
-int render_map(t_game *game);
-void render_map_sprite(t_game *game, int y, int x);
-void render_sprite(t_game *game, t_image sprite, int y, int x);
-void render_player(t_game *game, int y, int x);
+int		render_map(t_game *game);
+void	render_map_sprite(t_game *game, int y, int x);
+void	render_sprite(t_game *game, t_image sprite, int y, int x);
+void	render_player(t_game *game, int y, int x);
 
 // reactions
-int handle_input(int keysym, t_game *game);
-void move_player(t_game *game, int new_y, int new_x, int player_sprite);
-int close_game(t_game *game);
-int victory_game(t_game *game);
+int		handle_input(int keysym, t_game *game);
+void	move_player(t_game *game, int new_y, int new_x, int player_sprite);
+int		close_game(t_game *game);
+int		victory_game(t_game *game);
 
 // cleanup
 void	free_map(t_game *game);

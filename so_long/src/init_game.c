@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-void init_vars(t_game *game)
+void	init_vars(t_game *game)
 {
 	game->map.treasures = 0;
 	game->map.exit = 0;
@@ -22,7 +22,7 @@ void init_vars(t_game *game)
 	game->player_sprite = RIGHT;
 }
 
-void init_mlx(t_game *game)
+void	init_mlx(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
 	if (game->mlx_ptr == NULL)
@@ -42,9 +42,9 @@ void init_mlx(t_game *game)
 	}
 }
 
-void init_sprites(t_game *game)
+void	init_sprites(t_game *game)
 {
-	void *mlx;
+	void	*mlx;
 
 	mlx = game->mlx_ptr;
 	game->wall = load_sprite(mlx, WALL_XPM, game);
@@ -58,9 +58,9 @@ void init_sprites(t_game *game)
 	game->exit_closed = load_sprite(mlx, EXIT_CLOSED_XPM, game);
 }
 
-t_image load_sprite(void *mlx, char *path, t_game *game)
+t_image	load_sprite(void *mlx, char *path, t_game *game)
 {
-	t_image sprite;
+	t_image	sprite;
 
 	sprite.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &sprite.x, &sprite.y);
 	if (sprite.xpm_ptr == NULL)
