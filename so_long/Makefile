@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/18 20:34:11 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/18 20:45:05 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS  	= -Wall -Werror -Wextra
 MLXFLAGS 	= -lmlx -lXext -lX11
 
 VALGRIND 	= @valgrind --leak-check=full --show-leak-kinds=all \
-			  --track-origins=yes --quiet --tool=memcheck --keep-debuginfo= yes
+			  --track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
 REMOVE 		= rm -f
 
