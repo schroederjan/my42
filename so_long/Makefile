@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/18 20:45:05 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/19 09:31:23 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 
 NAME		= so_long
 
-LIBFT 		= ./libft/libft.a
+LIBFT 		= ./libs/libft/libft.a
 
 CC 			= cc
 CFLAGS  	= -Wall -Werror -Wextra
