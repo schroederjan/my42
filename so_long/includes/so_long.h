@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/18 20:36:55 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:36:29 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <mlx.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "../libft/libft.h"
+# include "../libs/libft/libft.h"
 # include <stdlib.h>
 
 // Variables

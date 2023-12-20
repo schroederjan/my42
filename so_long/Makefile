@@ -6,59 +6,55 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/19 09:56:32 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/20 09:38:11 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-# =========
+NAME = so_long
 
-NAME		= so_long
+LIBFT = ./libs/libft
+LIBMLX = ./libs/minilibx-linux
+LIBS = -L$(LIBMLX) -lmlx -lXext -lX11 -lm -lbsd
 
-LIBFT 		= ./libs/libft/libft.a
-LIBMLX 		= ./libs/MLX42
-LIBS		= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+HEADERS = -I ./includes -I $(LIBMLX)
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+# CFLAGS = -Wall -Werror -Wextra -g
 
-HEADERS		= -I ./includes -I $(LIBMLX)/include
-CC 			= cc
-CFLAGS  	= -Wall -Werror -Wextra
-# CFLAGS  	= -Wall -Werror -Wextra -g
+SRCS = $(shell find ./src -iname "*.c")
+OBJS = $(SRCS:.c=.o)
 
-SRCS		= $(shell find ./src -iname "*.c")
-OBJS 		= $(SRCS:.c=.o)
-
-REMOVE 		= rm -rf
-VALGRIND 	= @valgrind --leak-check=full --show-leak-kinds=all \
-			  --track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
+REMOVE = rm -rf
+VALGRIND = @valgrind --leak-check=full --show-leak-kinds=all \
+            --track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
 # Commands
-# ========
-
-all: libmlx $(LIBFT) $(NAME)
+all: libmlx $(LIBFT)/libft.a $(NAME)
 
 libmlx:
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	@echo "Compiling MinilibX..."
+	@make -C $(LIBMLX)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
-
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(LIBFT) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(LIBFT)/libft.a $(HEADERS) -o $(NAME)
 
-$(LIBFT):
-	@echo
-	make all -C libft
+$(LIBFT)/libft.a:
+	@echo "Compiling libft..."
+	@make all -C $(LIBFT)
 
 clean:
-	make clean -C libft
+	make clean -C $(LIBFT)
 	$(REMOVE) $(OBJS)
-	$(REMOVE) $(LIBMLX)/build
+	@make clean -C $(LIBMLX)
 
 fclean: clean
 	$(REMOVE) $(NAME)
 
-re: clean all
+re: fclean all
 
 val: $(NAME)
 	$(VALGRIND) ./${NAME} resources/maps/map_small.ber
