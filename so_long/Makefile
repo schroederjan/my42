@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/20 09:38:11 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/20 09:48:02 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,4 +62,9 @@ val: $(NAME)
 run: $(NAME)
 	./${NAME} resources/maps/map_small.ber
 
-.PHONY: all clean fclean re run val libmlx
+norm:
+	@norminette ./includes
+	@norminette ./src
+	@norminette ./libs/libft
+
+.PHONY: all clean fclean re run val norm libmlx
