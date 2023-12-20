@@ -6,7 +6,7 @@
 #    By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:24:25 by jschroed          #+#    #+#              #
-#    Updated: 2023/12/20 09:48:02 by jschroed         ###   ########.fr        #
+#    Updated: 2023/12/20 18:33:46 by jschroed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ SRCS = $(shell find ./src -iname "*.c")
 OBJS = $(SRCS:.c=.o)
 
 REMOVE = rm -rf
+
 VALGRIND = @valgrind --leak-check=full --show-leak-kinds=all \
-            --track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
+			--track-origins=yes --tool=memcheck --keep-debuginfo=yes
 
 # Commands
 all: libmlx $(LIBFT)/libft.a $(NAME)

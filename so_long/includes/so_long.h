@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/20 09:36:29 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:50:12 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <X11/keysym.h>
 # include "../libs/libft/libft.h"
 # include <stdlib.h>
+# include <stdbool.h>
 
 // Variables
 // =========
@@ -31,7 +32,7 @@
 # define IMG_WIDTH			32
 
 # define WALL				'1'
-# define FLOOR 				'0'
+# define FLOOR				'0'
 # define TREASURE  			'C'
 # define PLAYER				'P'
 # define MAP_EXIT 		 	'E'
@@ -61,13 +62,6 @@
 
 // Structs
 // =======
-
-// no bool type in c98, so create own
-typedef enum e_bool
-{
-	false,
-	true
-}	t_bool;
 
 typedef struct s_position
 {
@@ -100,7 +94,7 @@ typedef struct s_game
 	int			movements;
 	int			player_sprite;
 	t_map		map;
-	t_bool		map_alloc;
+	bool		map_alloc;
 	t_image		wall;
 	t_image		floor;
 	t_image		treasures;
