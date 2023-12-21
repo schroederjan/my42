@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:34:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/18 20:32:19 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:46:52 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	check_columns(t_game *game)
 	last_column = game->map.columns;
 	while (i < game->map.rows)
 	{
-		if (game->map.full[i][0] != WALL)
+		if (game->map.full[i][0] != '1')
 			error("Invalid map. First column  missing wall.", game);
-		else if (game->map.full[i][last_column] != WALL)
+		else if (game->map.full[i][last_column] != '1')
 			error("Invalid map. Last column missing wall.", game);
 		i++;
 	}
@@ -46,9 +46,9 @@ void	check_rows(t_game *game)
 	last_row = game->map.rows - 1;
 	while (i < game->map.columns)
 	{
-		if (game->map.full[0][i] != WALL)
+		if (game->map.full[0][i] != '1')
 			error("Invalid map. First row missing wall.", game);
-		else if (game->map.full[last_row][i] != WALL)
+		else if (game->map.full[last_row][i] != '1')
 			error("Invalid map. Last row missing wall.", game);
 		i++;
 	}

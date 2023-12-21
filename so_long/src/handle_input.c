@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 08:21:16 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/18 20:22:00 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:47:49 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ void	move_player(t_game *game, int new_y, int new_x, int player_sprite)
 	game->player_sprite = player_sprite;
 	last_x = game->map.player.x;
 	last_y = game->map.player.y;
-	if (game->map.full[new_y][new_x] == MAP_EXIT && game->map.treasures == 0)
+	if (game->map.full[new_y][new_x] == 'E' && game->map.treasures == 0)
 		victory_game(game);
-	else if ((game->map.full[new_y][new_x] == FLOOR)
-			|| (game->map.full[new_y][new_x] == TREASURE))
+	else if ((game->map.full[new_y][new_x] == '0')
+			|| (game->map.full[new_y][new_x] == 'C'))
 	{
-		game->map.full[last_y][last_x] = FLOOR;
-		if (game->map.full[new_y][new_x] == TREASURE)
+		game->map.full[last_y][last_x] = '0';
+		if (game->map.full[new_y][new_x] == 'C')
 			game->map.treasures--;
 		game->map.player.y = new_y;
 		game->map.player.x = new_x;
-		game->map.full[new_y][new_x] = PLAYER;
+		game->map.full[new_y][new_x] = 'P';
 		game->movements++;
 		render_map(game);
 	}
