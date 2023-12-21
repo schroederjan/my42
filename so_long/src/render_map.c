@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 12:02:20 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/18 20:15:19 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/21 09:49:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,20 @@ void	render_map_sprite(t_game *game, int y, int x)
 	char	param;
 
 	param = game->map.full[y][x];
-	if (param == WALL)
+	if (param == '1')
 		render_sprite(game, game->wall, y, x);
-	else if (param == FLOOR)
+	else if (param == '0')
 		render_sprite(game, game->floor, y, x);
-	else if (param == TREASURE)
+	else if (param == 'C')
 		render_sprite(game, game->treasures, y, x);
-	else if (param == MAP_EXIT)
+	else if (param == 'E')
 	{
 		if (game->map.treasures == 0)
 			render_sprite(game, game->exit_opened, y, x);
 		else
 			render_sprite(game, game->exit_closed, y, x);
 	}
-	else if (param == PLAYER)
+	else if (param == 'P')
 		render_player(game, y, x);
 }
 

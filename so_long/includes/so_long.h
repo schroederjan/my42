@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/20 18:50:12 by jschroed         ###   ########.fr       */
+/*   Updated: 2023/12/21 09:50:45 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@
 # define IMG_HEIGHT			32
 # define IMG_WIDTH			32
 
-# define WALL				'1'
-# define FLOOR				'0'
-# define TREASURE  			'C'
-# define PLAYER				'P'
-# define MAP_EXIT 		 	'E'
+// NOTE: Implemented in render_map.c directly bcs. norm false positive
+// # define WALL				'1'
+// # define FLOOR				'0'
+// # define TREASURE  			'C'
+// # define PLAYER				'P'
+// # define MAP_EXIT 		 	'E'
 
 # define KEY_W				119
 # define KEY_A				97
