@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 08:33:55 by jschroed          #+#    #+#             */
-/*   Updated: 2024/02/03 12:16:27 by jschroed         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:28:20 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_for_empty_line_in_map(char *map, t_game *game)
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
 			free(map);
-			error("Invalid map. Empty line in the middle", game);
+			error("Invalid map. Empty line in the middle or end", game);
 		}
 		i++;
 	}
