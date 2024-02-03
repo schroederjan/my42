@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:00:27 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/11 20:58:37 by jschroed         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:37:54 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_vars(t_game *game)
 	game->map.exit = 0;
 	game->map.players = 0;
 	game->movements = 0;
-	game->map.columns = ft_strlen(game->map.full[0]) - 1;
+	game->map.columns = ft_strlen(game->map.full[0]);
 	game->player_sprite = RIGHT;
 }
 

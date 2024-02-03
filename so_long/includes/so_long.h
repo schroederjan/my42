@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:02:09 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/21 09:50:45 by jschroed         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:49:47 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void	check_for_empty_line_in_map(char *map, t_game *game);
 void	debug_print(t_game *game, int keysym);
 void	check_map_elements(t_game *game);
 void	check_map_elements_quantity(t_game *game);
+void	check_map_rectangular(t_game *game);
 void	check_rows(t_game *game);
 void	check_columns(t_game *game);
 void	check_map(t_game *game);

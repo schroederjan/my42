@@ -6,7 +6,7 @@
 /*   By: jschroed <jschroed@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:34:32 by jschroed          #+#    #+#             */
-/*   Updated: 2023/12/21 19:46:52 by jschroed         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:15:19 by jschroed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	check_map(t_game *game)
 {
 	check_columns(game);
 	check_rows(game);
+	check_map_rectangular(game);
 	check_map_elements(game);
 	check_map_elements_quantity(game);
 }
@@ -26,12 +27,12 @@ void	check_columns(t_game *game)
 	int	last_column;
 
 	i = 0;
-	last_column = game->map.columns;
+	last_column = game->map.columns - 1;
 	while (i < game->map.rows)
 	{
 		if (game->map.full[i][0] != '1')
 			error("Invalid map. First column  missing wall.", game);
-		else if (game->map.full[i][last_column] != '1')
+		if (game->map.full[i][last_column] != '1')
 			error("Invalid map. Last column missing wall.", game);
 		i++;
 	}
@@ -48,7 +49,7 @@ void	check_rows(t_game *game)
 	{
 		if (game->map.full[0][i] != '1')
 			error("Invalid map. First row missing wall.", game);
-		else if (game->map.full[last_row][i] != '1')
+		if (game->map.full[last_row][i] != '1')
 			error("Invalid map. Last row missing wall.", game);
 		i++;
 	}
@@ -77,8 +78,10 @@ void	check_map_elements_quantity(t_game *game)
 {
 	if (game->map.treasures == 0)
 		error("Invalid map. No treasure 'C' found.", game);
-	else if (game->map.exit == 0)
+	if (game->map.exit == 0)
 		error("Invalid map. No map exit 'E' found.", game);
-	else if (game->map.players != 1)
+	if (game->map.exit > 1)
+		error("Invalid map. More than one exit 'E' found.", game);
+	if (game->map.players != 1)
 		error("Invalid map. More than one player 'P' found.", game);
 }
