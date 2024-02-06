@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+// s
+
 static int	ft_printchar(int c)
 {
 	write(1, &c, 1);
@@ -51,45 +53,7 @@ static int	ft_printstr(char *str)
 	return (i);
 }
 
-static int	ft_hexlen(unsigned int num)
-{
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 16;
-	}
-	return (len);
-}
-
-static void	ft_puthex(unsigned int num, const char format)
-{
-	if (num >= 16)
-		ft_puthex(num / 16, format);
-	num = num % 16;
-	if (num <= 9)
-		ft_printchar(num + '0');
-	else
-		ft_printchar(num - 10 + 'a');
-}
-
-static int	ft_printhex(unsigned int num, const char format)
-{
-	int	count;
-
-	if (num == 0)
-		count = write(1, "0", 1);
-	else
-	{
-		count = 0;
-		ft_puthex(num, format);
-		count += ft_hexlen(num);
-	}
-	return (count);
-}
-
+// d
 
 static int	ft_intlen(int n)
 {
@@ -133,6 +97,49 @@ static int	ft_printint(int n)
 	return (count);
 }
 
+// x
+
+static int	ft_hexlen(unsigned int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 16;
+	}
+	return (len);
+}
+
+static void	ft_puthex(unsigned int num)
+{
+	if (num >= 16)
+		ft_puthex(num / 16);
+	num = num % 16;
+	if (num <= 9)
+		ft_printchar(num + '0');
+	else
+		ft_printchar(num - 10 + 'a');
+}
+
+static int	ft_printhex(unsigned int num)
+{
+	int	count;
+
+	if (num == 0)
+		count = write(1, "0", 1);
+	else
+	{
+		count = 0;
+		ft_puthex(num);
+		count += ft_hexlen(num);
+	}
+	return (count);
+}
+
+// format, parser, printf
+
 static int	ft_formats(va_list args, const char format)
 {
 	int	count;
@@ -145,7 +152,7 @@ static int	ft_formats(va_list args, const char format)
 	if (format == 'd')
 		count += ft_printint(va_arg(args, int));
 	if (format == 'x')
-		count += ft_printhex(va_arg(args, unsigned int), format);
+		count += ft_printhex(va_arg(args, unsigned int));
 	return (count);
 }
 
@@ -181,10 +188,13 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-/* int main(void) */
-/* { */
-/*     ft_printf("%s\n", "string"); */
-/*     ft_printf("%d\n", 666); */
-/*     ft_printf("%x\n", 255); */
-/*     ft_printf("nothing"); */
-/* } */
+// main
+
+int main(void)
+{
+	ft_printf("%s\n", "string");
+	ft_printf("%c\n", 'c');
+	ft_printf("%d\n", 666);
+	ft_printf("%x\n", 255);
+	ft_printf("nothing");
+}
